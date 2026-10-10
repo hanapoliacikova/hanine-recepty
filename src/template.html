@@ -829,7 +829,7 @@ async function generate() {
     try { localStorage.setItem("hr-ideas", JSON.stringify(IDEAS)); } catch (e) {}
   } catch (e) {
     ideaState = e && e.code === "cancelled" ? "idle" : "err";
-    ideaErr = ({not_granted:window.HR_WEB ? "Najprv sa prihlás." : "Bez povolenia ti nápady neviem vymyslieť. Povoliť to môžeš v menu tejto stránky (Povolenia).", limit:"Na dnes si už nápady vyčerpala. Zajtra si môžeš dať vymyslieť ďalšie.", rate_limited:"Teraz toho bolo veľa naraz. Skús to o chvíľu znova.", invalid_json:"Nápady sa nepodarilo prečítať. Skús to znova."})[e && e.code] || "Niečo sa nepodarilo. Skús to znova.";
+    ideaErr = ({not_granted:window.HR_WEB ? "Najprv sa prihlás." : "Bez povolenia ti nápady neviem vymyslieť. Povoliť to môžeš v menu tejto stránky (Povolenia).", limit:"Na dnes si už nápady vyčerpala. Zajtra si môžeš dať vymyslieť ďalšie.", rate_limited:"Teraz toho bolo veľa naraz. Skús to o chvíľu znova.", invalid_json:"Nápady sa nepodarilo prečítať. Skús to znova."})[e && e.code] || "Niečo sa nepodarilo. Skús to znova." + (window.HR_WEB && e && e.message && e.message !== e.code ? " (" + e.message + ")" : "");
   }
   renderDoma(); renderIdeas();
 }
