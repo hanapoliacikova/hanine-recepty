@@ -14,6 +14,7 @@ module.exports = async (req, res) => {
   const SU = String(process.env.SUPABASE_URL || "").trim().replace(/\/(rest|auth)\/v1.*$/, "").replace(/\/+$/, ""), AK = String(process.env.SUPABASE_ANON_KEY || "").trim(), KEY = String(process.env.ANTHROPIC_API_KEY || "").trim();
   const LIMIT = Math.max(1, parseInt(String(process.env.DENNY_LIMIT || "").replace(/[^0-9]/g, ""), 10) || 10);
   if (!SU || !AK || !KEY) return res.status(500).json({code: "error", error: "Chýba nastavenie na serveri."});
+  if (!/^sk-ant-\S{20,}$/.test(KEY)) return res.status(500).json({code: "error", error: "ANTHROPIC_API_KEY vo Verceli nevyzerá ako kľúč (má začínať sk-ant-)."});
 
   const tok = String(req.headers.authorization || "").replace(/^Bearer\s+/i, "");
   if (!tok) return res.status(401).json({code: "not_granted"});
@@ -39,6 +40,8 @@ module.exports = async (req, res) => {
     body: JSON.stringify({model: process.env.CLAUDE_MODEL || "claude-sonnet-5-5", max_tokens: 6000, system: SYSTEM, messages: [{role: "user", content: prompt}]})
   });
   if (r.status === 429 || r.status === 529) return res.status(429).json({code: "rate_limited"});
+  if (r.status === 401) return res.status(502).json({code: "error", error: "Anthropic neprijal kľúč (401). Vytvor nový kľúč, vlož ho do ANTHROPIC_API_KEY a daj Redeploy."});
+  if (r.status === 400 || r.status === 402 || r.status === 403) { const e = await r.json().catch(() => ({})); return res.status(502).json({code: "error", error: "Claude API: " + String((e.error && e.error.message) || r.status).slice(0, 200)}); }
   if (!r.ok) return res.status(502).json({code: "error", error: "Claude API vrátilo chybu " + r.status + "."});
   const j = await r.json();
   const data = parseJSON((j.content || []).filter(c => c.type === "text").map(c => c.text).join(""));
