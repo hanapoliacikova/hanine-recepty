@@ -19,7 +19,7 @@ Kód je hotový a otestovaný. Ty iba založíš projekty a do nich vložíš k�
 3. Vľavo otvor **Authentication**, potom **Sign In / Providers** a **Email**. Vypni **Confirm email** a klikni na **Save**. Kamarátky sa tak zaregistrujú bez potvrdzovacieho e-mailu.
 4. Vľavo otvor **Project Settings** a **API Keys** (v niektorých verziách sa to volá **Data API**). Nájdi tam dve hodnoty, budeš ich potrebovať vo Verceli:
    - **Project URL** (vyzerá ako `https://abcd.supabase.co`)
-   - **anon public** kľúč (dlhý text začínajúci `eyJ…`)
+   - verejný kľúč: **Publishable key** (`sb_publishable_…`) alebo v starom rozhraní **anon public** (`eyJ…`). **Secret ani service_role kľúč nikdy nekopíruj.**
 
 ## 3. Anthropic: kľúč na AI nápady
 
