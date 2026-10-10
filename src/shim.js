@@ -87,6 +87,7 @@
     loginUI();
     const cfg = await fetch("/api/config").then(r => r.json()).catch(() => ({}));
     if (!cfg.url || !cfg.anonKey) throw Object.assign(new Error("config"), {hr:"Chýba nastavenie Supabase. Vo Verceli skontroluj Environment Variables SUPABASE_URL a SUPABASE_ANON_KEY a daj Redeploy."});
+    if (!/^https:\/\/[^\s/]+$/.test(cfg.url)) throw Object.assign(new Error("url"), {hr:"SUPABASE_URL vo Verceli nie je adresa. Vlož tam Project URL zo Supabase (napr. https://abcd.supabase.co) a daj Redeploy."});
     if (!window.supabase) throw Object.assign(new Error("lib"), {hr:"Nenačítala sa knižnica Supabase. Skús obnoviť stránku."});
     sb = window.supabase.createClient(cfg.url, cfg.anonKey, {auth:{persistSession:true, autoRefreshToken:true}});
     session = (await sb.auth.getSession()).data.session;

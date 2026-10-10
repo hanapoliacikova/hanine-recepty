@@ -33,12 +33,12 @@ Kód je hotový a otestovaný. Ty iba založíš projekty a do nich vložíš k�
 2. Framework Preset nechaj **Other**.
 3. Rozbaľ **Environment Variables** a pridaj tieto štyri:
 
-   | Name | Value |
+   | Name (napíš presne takto) | Value (sem vlož skopírovanú hodnotu, nie popis) |
    |---|---|
-   | `SUPABASE_URL` | Project URL zo Supabase |
-   | `SUPABASE_ANON_KEY` | anon public kľúč zo Supabase |
-   | `ANTHROPIC_API_KEY` | kľúč z Anthropicu |
-   | `DENNY_LIMIT` | `10` (koľkokrát za deň si človek môže dať vymyslieť nápady) |
+   | `SUPABASE_URL` | adresa zo Supabase, napr. `https://abcdefgh.supabase.co` |
+   | `SUPABASE_ANON_KEY` | kľúč zo Supabase, začína `eyJ…` alebo `sb_publishable_…` |
+   | `ANTHROPIC_API_KEY` | kľúč z Anthropicu, začína `sk-ant-…` |
+   | `DENNY_LIMIT` | `10` |
 
 4. Klikni na **Deploy**. O chvíľu dostaneš adresu typu `hanine-recepty.vercel.app`.
 5. **Zaregistruj sa ako prvá.** Prvý účet je správkyňa: vidí tvoj profil a diétu a môže označovať pripomienky ako vyriešené.
