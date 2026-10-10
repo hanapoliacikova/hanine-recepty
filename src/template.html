@@ -1,0 +1,1007 @@
+<title>Hanine recepty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&display=swap">
+<style>
+/* Layout: a kitchen shelf of illustrated recipe tiles; plan for the week on top, filters, then a responsive grid; recipe opens as a sheet */
+:root{
+  --bg:#fff4ec; --surface:#ffffff; --ink:#2b1b2e; --muted:#6e5a70; --line:#f1ddd0;
+  --basil:#2b1b2e; --basil-ink:#fff4ec; --basil-soft:#dff0c6;
+  --butter:#ffd449; --saffron:#a3550a; --saffron-soft:#ffe9b8; --tomato:#d63a1f; --tomato-soft:#ffe0d8;
+  --accent:#ff5a3c; --accent-ink:#ffffff; --lav:#d9c8ff; --pist:#b9e28c;
+  --c-polievka:#ffd0c4; --c-salat:#cdeaa8; --c-hlavne:#ffe48a; --c-ranajky:#fff0b8; --c-pecivo:#f6dcc0; --c-dezert:#f9cfe4; --c-priloha:#e4d8ff; --c-zasoba:#cfe8ff;
+  --shadow:none;
+  --display:"Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body:"Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --emoji:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1c1220; --surface:#2a1d2e; --ink:#fff4ec; --muted:#c3aec4; --line:#3d2c41;
+  --basil:#d9c8ff; --basil-ink:#1c1220; --basil-soft:#33452a;
+  --butter:#ffd449; --saffron:#ffb65c; --saffron-soft:#43301a; --tomato:#ff8a73; --tomato-soft:#47231f;
+  --accent:#ff6a4d; --accent-ink:#ffffff; --lav:#c4b0f7; --pist:#a6d27a;
+  --c-polievka:#4d2a24; --c-salat:#2f4224; --c-hlavne:#4a3d17; --c-ranajky:#463d22; --c-pecivo:#45352a; --c-dezert:#47263a; --c-priloha:#33284d; --c-zasoba:#213847;
+  --shadow:none; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1c1220; --surface:#2a1d2e; --ink:#fff4ec; --muted:#c3aec4; --line:#3d2c41;
+  --basil:#d9c8ff; --basil-ink:#1c1220; --basil-soft:#33452a;
+  --butter:#ffd449; --saffron:#ffb65c; --saffron-soft:#43301a; --tomato:#ff8a73; --tomato-soft:#47231f;
+  --accent:#ff6a4d; --accent-ink:#ffffff; --lav:#c4b0f7; --pist:#a6d27a;
+  --c-polievka:#4d2a24; --c-salat:#2f4224; --c-hlavne:#4a3d17; --c-ranajky:#463d22; --c-pecivo:#45352a; --c-dezert:#47263a; --c-priloha:#33284d; --c-zasoba:#213847;
+  --shadow:none; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:1080px;margin:0 auto}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--basil);outline-offset:2px;border-radius:8px}
+
+/* Header */
+header{padding-block:32px 8px;display:grid;gap:10px}
+.eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.02;margin:0;text-wrap:balance}
+h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--butter) 62%,var(--butter) 90%,transparent 90%);padding-inline:2px}
+.lede{color:var(--muted);margin:0;max-width:56ch}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.pill{font-size:.85rem;font-weight:600;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.pill b{color:var(--tomato);font-weight:700}
+
+/* Week plan */
+.week{margin-top:22px;background:var(--basil);color:var(--basil-ink);border-radius:22px;padding:20px;display:grid;gap:14px}
+.week-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 16px}
+.week h2{font-family:var(--display);font-weight:400;font-size:1.5rem;margin:0}
+.week .cart{font-size:.9rem;opacity:.9}
+.seg{display:inline-flex;background:color-mix(in srgb,var(--basil-ink) 14%,transparent);border-radius:999px;padding:3px}
+.seg button{font:inherit;font-size:.88rem;font-weight:600;border:0;background:none;color:inherit;padding:6px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink)}
+.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.day{background:color-mix(in srgb,var(--basil-ink) 12%,transparent);border-radius:16px;padding:10px;display:grid;gap:8px;align-content:start;min-width:0}
+.day .dn{font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.pi{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;background:var(--surface);color:var(--ink);border-radius:12px;padding:6px}
+.pi .em{font-family:var(--emoji);font-size:1.3rem;width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:var(--bg)}
+.pi .t{font:inherit;font-size:.85rem;font-weight:600;line-height:1.2;text-align:left;background:none;border:0;color:inherit;cursor:pointer;padding:0;min-width:0;overflow-wrap:anywhere}
+.pi .x{border:0;background:none;color:var(--muted);cursor:pointer;font-size:1rem;width:28px;height:28px;border-radius:50%}
+.pi .x:hover{background:var(--bg)}
+.addday{font:inherit;font-size:.85rem;font-weight:600;border:1.5px dashed color-mix(in srgb,var(--basil-ink) 45%,transparent);background:none;color:inherit;border-radius:12px;padding:9px;cursor:pointer}
+.addday[aria-pressed="true"]{background:var(--butter);color:#1f261e;border-style:solid;border-color:var(--butter)}
+.plan-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.btn{font:inherit;font-weight:700;border:0;border-radius:999px;padding:10px 18px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.btn.light{background:var(--surface);color:var(--ink)}
+.btn.main{background:var(--basil);color:var(--basil-ink)}
+.btn.ghost{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+.btn:disabled{opacity:.5;cursor:default}
+.sent{font-size:.88rem;opacity:.92}
+.picking{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;background:var(--butter);color:#1f261e;border-radius:14px;padding:8px 12px;font-weight:600;font-size:.92rem}
+.picking button{font:inherit;font-size:.85rem;border:0;background:rgba(0,0,0,.08);color:inherit;border-radius:999px;padding:4px 12px;cursor:pointer}
+.cw{position:relative;display:flex}
+.cw .card{flex:1}
+.add{position:absolute;left:10px;top:10px;z-index:2;font:inherit;font-weight:700;font-size:.8rem;border:0;border-radius:999px;padding:6px 11px;background:var(--surface);color:var(--ink);box-shadow:var(--shadow);cursor:pointer}
+.add.in{background:var(--basil);color:var(--basil-ink)}
+.daypick{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.daypick button{font:inherit;font-weight:700;font-size:.9rem;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:10px 0;cursor:pointer;display:grid;gap:2px;justify-items:center}
+.daypick button small{font-weight:500;font-size:.7rem;color:var(--muted)}
+.daypick button[aria-pressed="true"]{background:var(--basil);color:var(--basil-ink);border-color:var(--basil)}
+.daypick button[aria-pressed="true"] small{color:inherit;opacity:.85}
+.pad{padding:22px;display:grid;gap:16px}
+.pad h2{font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.1;margin:0}
+.picking[hidden]{display:none}
+.ings.shop{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.ings.shop li{grid-template-columns:40px 1fr auto}
+.shop li .who{font-size:.72rem;color:var(--muted)}
+.shop li input{width:20px;height:20px;accent-color:var(--basil)}
+.shop li.have{opacity:.5}
+.shop li.have .txt{text-decoration:line-through}
+details summary{cursor:pointer;color:var(--muted);font-size:.9rem;font-weight:600}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:5px;margin-top:22px;box-shadow:var(--shadow)}
+.tabs button{font:inherit;font-weight:700;font-size:.95rem;flex-wrap:wrap;text-align:center;line-height:1.2;border:0;background:none;color:var(--muted);border-radius:14px;padding:12px 8px;cursor:pointer;display:flex;gap:8px;align-items:center;justify-content:center}
+.tabs button .ic{font-family:var(--emoji);font-size:1.2rem}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.dhead{display:grid;gap:6px;margin-top:22px}
+.dhead h2{font-family:var(--display);font-weight:400;font-size:1.7rem;line-height:1.1;margin:0}
+.groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:16px}
+.grp{background:var(--surface);border-radius:20px;padding:14px 16px 16px;box-shadow:var(--shadow);display:grid;gap:12px;align-content:start;border:2px solid transparent}
+.grp.buyable{border-color:var(--butter)}
+.grp-h{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.grp-h h3{margin:0;font-size:1.05rem;display:flex;gap:8px;align-items:center}
+.grp-h h3 .ic{font-family:var(--emoji);font-size:1.4rem}
+.buy{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--muted);cursor:pointer;flex:none}
+.buy input{appearance:none;width:40px;height:24px;border-radius:999px;background:var(--line);position:relative;cursor:pointer;margin:0;transition:background .15s}
+.buy input::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:var(--surface);box-shadow:0 1px 2px rgba(0,0,0,.2);transition:transform .15s}
+.buy input:checked{background:var(--saffron)}
+.buy input:checked::after{transform:translateX(16px)}
+.buy input:checked + span{color:var(--saffron)}
+.items{display:flex;flex-wrap:wrap;gap:6px}
+.it{font:inherit;font-size:.88rem;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:6px 11px 6px 8px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.it .ic{font-family:var(--emoji)}
+.it[aria-pressed="true"]{background:var(--basil);color:var(--basil-ink);border-color:var(--basil);font-weight:600}
+.addown{display:flex;gap:6px}
+.addown input{font:inherit;font-size:.9rem;flex:1;min-width:0;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.addown button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:0 14px;background:var(--ink);color:var(--bg);cursor:pointer}
+.opts{display:grid;gap:8px;margin-top:16px}
+.opts .row{flex-wrap:wrap;overflow:visible}
+.gen{position:sticky;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:4;margin-top:18px;background:var(--surface);border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.15);padding:10px 10px 10px 16px;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between}
+.gen .sum{font-size:.85rem;color:var(--muted);flex:1 1 160px}
+.gen .go{font:inherit;font-weight:700;font-size:1rem;border:0;border-radius:14px;padding:12px 18px;flex:1 1 220px;max-width:340px;background:var(--basil);color:var(--basil-ink);cursor:pointer}
+.gen .go:disabled{opacity:.6;cursor:default}
+.ideas-st{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.ideas-st h2{font-family:var(--display);font-weight:400;font-size:1.5rem;margin:0}
+.think{display:flex;gap:12px;align-items:center;background:var(--surface);border-radius:16px;padding:16px;box-shadow:var(--shadow);margin-top:12px}
+.think .pot{font-family:var(--emoji);font-size:2rem;animation:bob 1.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-4px) rotate(-6deg)}}
+.b.kc{background:var(--bg);color:var(--ink)}
+.pi .k{display:block;font-size:.75rem;font-weight:500;color:var(--muted)}
+.b.new{background:var(--butter);color:#1f261e}
+.b.buyb{background:var(--saffron-soft);color:var(--saffron)}
+.why{font-size:.88rem;color:var(--muted);margin:0}
+.buybox{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;background:var(--bg);border-radius:14px;padding:12px 14px}
+.buybox .em{font-family:var(--emoji);font-size:1.3rem;line-height:1.2}
+@media (prefers-reduced-motion:reduce){.think .pot{animation:none}}
+.optlbl{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;margin-top:4px}
+.b.age{background:var(--c-priloha);color:var(--ink)}
+.kidbox{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;background:var(--c-priloha);border-radius:14px;padding:12px 14px}
+.kidbox .em{font-family:var(--emoji);font-size:1.3rem;line-height:1.2}
+.how{display:grid;gap:10px;background:var(--bg);border-radius:16px;padding:14px}
+.how strong{font-size:1.05rem}
+.how .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.how .two button{font:inherit;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:14px;padding:12px 14px;cursor:pointer;display:grid;gap:2px}
+.how .two button b{font-size:1rem}
+.how .two button span{font-size:.82rem;color:var(--muted)}
+.how .two button:hover{border-color:var(--basil)}
+.ings.list li{grid-template-columns:40px 1fr auto}
+.fb-form .row{flex-wrap:wrap;overflow:visible}
+.list li.done{opacity:.45}
+.rl{font-size:.8rem;font-weight:700;color:var(--accent)}
+.list li.done .txt{text-decoration:line-through}
+.list li input{width:22px;height:22px;accent-color:var(--basil)}
+.prog{height:8px;border-radius:999px;background:var(--bg);overflow:hidden}
+.prog i{display:block;height:100%;background:var(--basil);border-radius:999px}
+.fb-form{background:var(--surface);border-radius:20px;box-shadow:var(--shadow);padding:16px;display:grid;gap:12px;margin-top:16px}
+.fb-form textarea{font:inherit;width:100%;min-height:96px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical}
+.fb-form select{font:inherit;padding:9px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.fb-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.fb-list{display:grid;gap:10px;margin-top:16px}
+.fb{background:var(--surface);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow);display:grid;grid-template-columns:auto 1fr;gap:6px 12px;align-items:start}
+.fb img{width:34px;height:34px;border-radius:50%}
+.fb .meta{font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.fb .meta b{color:var(--ink);font-size:.9rem}
+.fb p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.fb .acts{grid-column:2;display:flex;gap:8px}
+.fb .acts button{font:inherit;font-size:.8rem;font-weight:600;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:4px 10px;cursor:pointer}
+.fb.res{opacity:.6}
+.fb.res p{text-decoration:line-through}
+.kom{display:grid;gap:10px}
+.kc{display:grid;grid-template-columns:34px 1fr;gap:4px 10px;background:var(--bg);border-radius:14px;padding:10px 12px}
+.kc img.av{width:34px;height:34px;border-radius:50%}
+.kc .meta{font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.kc .meta b{color:var(--ink);font-size:.9rem}
+.kc p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.kc .ph{grid-column:2;width:100%;max-width:360px;border-radius:12px;display:block;background:var(--line);aspect-ratio:4/3;object-fit:cover}
+.kc .del{grid-column:2;justify-self:start;font:inherit;font-size:.78rem;border:0;background:none;color:var(--muted);cursor:pointer;padding:0;text-decoration:underline}
+.kform{display:grid;gap:8px}
+.kform textarea{font:inherit;width:100%;min-height:70px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical}
+.kform .r{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.kform label.btn{position:relative;overflow:hidden}
+.kform input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.kform .prev{width:84px;height:84px;border-radius:12px;object-fit:cover}
+.b.cm{background:var(--bg);color:var(--muted)}
+.prof{background:var(--surface);border-radius:20px;box-shadow:var(--shadow);padding:14px 16px 16px;display:grid;gap:10px;margin-top:16px}
+.prof h3{margin:0;font-size:1.05rem;display:flex;gap:8px;align-items:center}
+.prof .items{gap:6px}
+.prof .r{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.prof input[type=text]{font:inherit;font-size:.9rem;flex:1;min-width:180px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.step{display:inline-flex;align-items:center;gap:4px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px}
+.step button{font:inherit;font-weight:700;width:32px;height:32px;border-radius:50%;border:0;background:var(--surface);color:var(--ink);cursor:pointer}
+.step output{min-width:24px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:600;font-size:.92rem;z-index:20;box-shadow:var(--shadow);max-width:calc(100% - 32px);text-align:center;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.on{opacity:1}
+.week-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.wk{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;text-align:left;background:color-mix(in srgb,var(--basil-ink) 14%,transparent);border:0;border-radius:16px;padding:10px 12px;cursor:pointer;color:inherit}
+.wk:hover{background:color-mix(in srgb,var(--basil-ink) 22%,transparent)}
+.wk .em{font-family:var(--emoji);font-size:1.9rem;line-height:1;width:52px;height:52px;display:grid;place-items:center;border-radius:14px;background:var(--surface)}
+.wk .t{font-weight:600;line-height:1.25}
+.wk .s{font-size:.82rem;opacity:.85}
+
+/* Filters */
+.filters{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);margin-top:22px;padding-block:12px;display:grid;gap:10px}
+.searchbox{position:relative}
+.searchbox input{font:inherit;width:100%;padding:12px 16px 12px 44px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.searchbox span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-family:var(--emoji);font-size:1.1rem}
+.row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.row::-webkit-scrollbar{display:none}
+.chip{flex:none;font-size:.9rem;font-weight:500;border:1px solid var(--line);background:var(--surface);padding:7px 13px;border-radius:999px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.chip .ic{font-family:var(--emoji)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.count{font-size:.85rem;color:var(--muted)}
+
+/* Grid of recipe tiles */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-top:6px}
+.card{background:var(--surface);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:0;padding:0;text-align:left;cursor:pointer;display:flex;flex-direction:column;transition:transform .15s ease}
+.card:hover{transform:translateY(-2px)}
+.hero{position:relative;aspect-ratio:16/10;max-width:100%;display:grid;place-items:center;overflow:hidden}
+.hero .plate{width:62%;aspect-ratio:1;border-radius:50%;background:var(--surface);box-shadow:inset 0 0 0 10px color-mix(in srgb,var(--ink) 5%,transparent),0 10px 24px rgba(0,0,0,.12);display:grid;place-items:center;position:relative}
+.hero .plate i{font-style:normal;font-family:var(--emoji);position:absolute;line-height:1}
+.hero .plate i:nth-child(1){font-size:clamp(2.2rem,5vw,2.8rem);transform:translate(-18%,-14%)}
+.hero .plate i:nth-child(2){font-size:clamp(1.6rem,3.6vw,2rem);transform:translate(48%,26%)}
+.hero .plate i:nth-child(3){font-size:clamp(1.4rem,3.2vw,1.7rem);transform:translate(-52%,46%)}
+.hero .scatter{position:absolute;font-family:var(--emoji);font-size:1.3rem;opacity:.55}
+.hero .time{position:absolute;right:10px;top:10px;background:var(--surface);font-weight:700;font-size:.8rem;padding:4px 9px;border-radius:999px;font-variant-numeric:tabular-nums}
+.cbody{padding:14px 16px 16px;display:grid;gap:8px}
+.cat{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.card h3{font-family:var(--display);font-weight:400;font-size:1.18rem;line-height:1.2;margin:0;text-wrap:balance}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.b{white-space:nowrap;font-size:.75rem;font-weight:700;padding:3px 8px;border-radius:7px}
+.ok{background:var(--basil-soft);color:var(--basil)}
+.uprava{background:var(--saffron-soft);color:var(--saffron)}
+.nie{background:var(--tomato-soft);color:var(--tomato)}
+.mini{display:flex;gap:2px;font-family:var(--emoji);font-size:1.05rem}
+.empty{padding:40px 0;color:var(--muted);text-align:center}
+
+/* Recipe sheet */
+dialog{border:0;padding:0;background:var(--surface);color:var(--ink);width:min(720px,100%);max-height:min(92vh,100%);border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+dialog::backdrop{background:rgba(15,20,15,.45);backdrop-filter:blur(2px)}
+@media (max-width:640px){dialog{margin:auto 0 0;width:100%;max-width:100%;border-radius:24px 24px 0 0;max-height:92vh}}
+.sheet{display:grid}
+.sheet .hero{aspect-ratio:auto;height:200px}
+.sheet .hero .plate{width:auto;height:76%}
+.close{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;border:0;background:var(--surface);cursor:pointer;font-size:1.2rem;font-weight:700;box-shadow:var(--shadow);z-index:2}
+.sbody{padding:20px;display:grid;gap:18px;min-width:0}
+.sbody h2{font-family:var(--display);font-weight:400;font-size:1.7rem;line-height:1.1;margin:0;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:8px 16px;color:var(--muted);font-size:.9rem;font-variant-numeric:tabular-nums}
+.facts b{color:var(--ink)}
+.swap{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;background:var(--saffron-soft);border-radius:14px;padding:12px 14px}
+.swap .em{font-family:var(--emoji);font-size:1.3rem;line-height:1.2}
+.swap strong{color:var(--saffron)}
+.note{font-size:.9rem;color:var(--muted)}
+h4{margin:0 0 10px;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.ings{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;list-style:none;padding:0;margin:0}
+.ings li{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;background:var(--bg);border-radius:12px;padding:6px 10px 6px 6px;font-size:.95rem;line-height:1.3;min-width:0}
+.ings .ie{font-family:var(--emoji);font-size:1.4rem;width:40px;height:40px;display:grid;place-items:center;border-radius:10px;background:var(--surface)}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:12px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:32px 1fr;gap:12px;counter-increment:s}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--basil);color:var(--basil-ink);display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px}
+.spot{display:inline-flex;align-items:center;gap:8px;background:#1db954;color:#0b1f12;font-weight:700;padding:9px 14px;border-radius:999px;text-decoration:none}
+.src{font-size:.85rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+
+/* Smer A: Jedlo, ktoré lieči. Jedno písmo, teplé farby, nálepkové tvary */
+body{font-weight:500}
+:focus-visible{outline-color:var(--accent)}
+h1,.week h2,.pad h2,.dhead h2,.ideas-st h2,.card h3,.sbody h2{font-weight:800;letter-spacing:-.03em}
+header{padding-block:28px 4px;gap:14px}
+h1{font-size:clamp(2.9rem,11vw,4.6rem);line-height:.94}
+h1 em,.dhead h2 em{background:none;color:var(--accent);font-style:normal;padding:0}
+.hello{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 12px}
+.hello>b{font-weight:600;font-size:1.05rem}
+.pills{margin:0}
+.pill{background:var(--ink);color:var(--bg);border:0;padding:6px 13px}
+.pill b{color:var(--butter)}
+.moods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:4px}
+@media (min-width:760px){.moods{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.mood{font:inherit;text-align:left;border:0;border-radius:28px 28px 28px 8px;padding:18px 16px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;min-height:120px;cursor:pointer;color:#2b1b2e;transition:transform .15s ease}
+.mood:nth-child(2){border-radius:28px 28px 8px 28px}
+.mood:nth-child(3){border-radius:28px 8px 28px 28px}
+.mood:nth-child(4){border-radius:8px 28px 28px 28px}
+.mood .ic{font-family:var(--emoji);font-size:2.1rem;line-height:1}
+.mood b{font-size:1.2rem;font-weight:800;line-height:1.05}
+.mood:hover{transform:translateY(-2px) rotate(-1deg)}
+.mood[aria-pressed="true"]{outline:3px solid var(--ink);outline-offset:3px}
+.m-energia{background:#ffd449}.m-utecha{background:#d9c8ff}.m-lahke{background:#b9e28c}.m-rychlo{background:var(--accent);color:#fff}
+.moodon{font:inherit;font-size:.85rem;font-weight:700;border:0;border-radius:999px;padding:4px 12px;margin-left:8px;background:var(--ink);color:var(--bg);cursor:pointer}
+.lede{font-size:1.02rem}
+.week{border-radius:32px;padding:22px}
+.day,.wk{border-radius:20px}
+.pi{border-radius:16px}
+.pi .em,.wk .em{border-radius:50%}
+.btn{font-weight:800}
+.btn.main,.gen .go{background:var(--accent);color:var(--accent-ink)}
+.gen{border-radius:28px;box-shadow:0 10px 30px rgba(43,27,46,.18)}
+.gen .go{border-radius:999px;font-weight:800;font-size:1.05rem}
+.tabs{background:var(--ink);border:0;border-radius:26px;padding:7px}
+.tabs button{color:var(--bg);font-weight:600;border-radius:20px}
+.tabs button[aria-selected="true"]{background:var(--bg);color:var(--ink);font-weight:800}
+.chip{border:0;font-weight:600}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.searchbox input{border:0;border-radius:999px}
+.card{border-radius:28px}
+.card .hero{border-radius:22px;margin:8px 8px 0}
+.card h3{font-size:1.3rem;line-height:1.08}
+.b{border-radius:999px;padding:4px 10px}
+.ok{background:var(--basil-soft);color:var(--ink)}
+.add{border-radius:999px;font-weight:800}
+.add.in{background:var(--ink);color:var(--bg)}
+.grp,.prof,.fb-form,.fb,.think{border-radius:28px}
+.grp-h h3 .ic{width:40px;height:40px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-size:1.25rem}
+.it{border:0;font-weight:600}
+.it[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.prof{background:var(--ink);color:var(--bg)}
+.prof .note{color:inherit;opacity:.8}
+.prof .it{background:color-mix(in srgb,var(--bg) 14%,transparent);color:inherit}
+.prof .it[aria-pressed="true"]{background:var(--butter);color:#2b1b2e}
+.prof input[type=text]{border:0}
+.daypick button{border-radius:16px}
+.daypick button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+dialog{border-radius:32px}
+@media (max-width:640px){dialog{border-radius:32px 32px 0 0}}
+.sheet .hero{height:230px;border-radius:0 0 40px 40px}
+.sbody h2{font-size:clamp(1.9rem,7vw,2.4rem);line-height:1}
+.facts span:not(.b){background:var(--bg);color:var(--ink);padding:5px 12px;border-radius:999px}
+.heal,.swap,.kidbox,.buybox{border-radius:22px}
+.heal{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;background:var(--lav);color:#2b1b2e;padding:14px 16px}
+.heal .em{font-family:var(--emoji);font-size:1.3rem;line-height:1.2}
+.swap{background:var(--basil-soft)}
+.swap strong{color:var(--ink)}
+.ings li{border-radius:999px;padding:5px 14px 5px 5px}
+.ings .ie{border-radius:50%}
+.ings.shop li,.ings.list li{border-radius:22px}
+.steps li{background:var(--bg);border-radius:22px;padding:12px 14px;grid-template-columns:30px 1fr}
+.steps li::before{width:auto;height:auto;background:none;color:var(--accent);font-size:1.7rem;font-weight:800;line-height:1}
+.spot{background:var(--ink);color:var(--bg);font-weight:800;padding:12px 18px}
+.close{background:var(--ink);color:var(--bg)}
+.how{border-radius:24px}
+.how .two button{border:0;border-radius:20px}
+.prog{height:12px}
+.prog i{background:var(--pist)}
+@media (max-width:640px){
+  body{padding-bottom:116px}
+  .tabs{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:15;margin:0;box-shadow:0 10px 30px rgba(43,27,46,.3)}
+  .tabs button{padding:9px 4px;font-size:.82rem;flex-direction:column;gap:2px}
+  .gen{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+  .toast{bottom:calc(100px + env(safe-area-inset-bottom,0px))}
+  .tabs-spacer{display:none}
+}
+.badges .b{display:inline-block}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pill b{color:#c2381c}}
+:root[data-theme="dark"] .pill b{color:#c2381c}
+@media (prefers-reduced-motion:reduce){.mood{transition:none}.mood:hover{transform:none}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="hello"><b id="hello">Ahoj!</b><div class="pills" id="pills"></div></div>
+  <h1>Čo ti dnes <em>urobí dobre?</em></h1>
+  <div class="moods" id="moods" role="group" aria-label="Ako sa dnes cítiš"></div>
+  <p class="lede">Vyber si náladu a ukážem ti, čo ti dnes padne vhod. Máš tu <span id="total"></span> receptov. Naplánuj si víkend alebo celý týždeň a z plánu ti vznikne nákupný zoznam.</p>
+</header>
+
+<section class="week" aria-labelledby="wk-h">
+  <div class="week-head"><h2 id="wk-h">Tvoj plán</h2><div class="seg" id="mode" role="group" aria-label="Obdobie"><button type="button" data-m="vikend">Víkend</button><button type="button" data-m="tyzden">Celý týždeň</button></div></div>
+  <div class="days" id="days"></div>
+  <div class="plan-foot"><span class="sent" id="sent"></span><span style="display:flex;flex-wrap:wrap;gap:8px"><button class="btn light" type="button" id="listBtn" hidden>📝 Online zoznam</button><button class="btn light" type="button" id="shopBtn">🛒 Nákupný zoznam</button></span></div>
+</section>
+
+<div class="picking" id="picking" hidden style="margin-top:16px"></div>
+<div class="tabs" role="tablist" aria-label="Zobrazenie">
+  <button type="button" role="tab" id="t-recepty" aria-controls="tab-recepty" data-tab="recepty"><span class="ic" aria-hidden="true">🍽️</span>Jedlá</button>
+  <button type="button" role="tab" id="t-doma" aria-controls="tab-doma" data-tab="doma"><span class="ic" aria-hidden="true">🧊</span>Chladnička</button>
+  <button type="button" role="tab" id="t-fb" aria-controls="tab-fb" data-tab="fb"><span class="ic" aria-hidden="true">💬</span>Pripomienky</button>
+</div>
+
+<div id="tab-doma" role="tabpanel" aria-labelledby="t-doma" hidden>
+  <div class="dhead"><h2>Čo máš <em>v chladničke?</em></h2><p class="lede">Ťukni na to, čo máš.<span id="fridgeNote"> Predvyplnil som to podľa fotiek tvojej chladničky.</span> Keď ti nevadí niečo z kategórie dokúpiť, zapni pri nej „Viem dokúpiť“.</p></div>
+  <div class="prof" id="prof"></div>
+  <div class="opts">
+    <div class="row" id="optPre" role="group" aria-label="Pre koho"></div>
+    <div class="row" id="optCas" role="group" aria-label="Čas"></div>
+    <span class="optlbl">Pre aký vek</span>
+    <div class="row" id="optVek" role="group" aria-label="Pre aký vek"></div>
+  </div>
+  <div class="groups" id="groups"></div>
+  <div class="gen">
+    <span class="sum" id="genSum"></span>
+    <button class="go" type="button" id="genBtn">✨ Vymysli mi niečo dobré</button>
+  </div>
+  <div id="ideasWrap"></div>
+  <div class="grid" id="ideas" style="margin-top:12px"></div>
+</div>
+
+<div id="tab-fb" role="tabpanel" aria-labelledby="t-fb" hidden>
+  <div class="dhead"><h2>Ako sa ti <em>páči?</em></h2><p class="lede">Testuješ appku? Napíš, čo nefunguje, čo chýba alebo čo sa ti páči. Hana aj Claude to tu uvidia.</p></div>
+  <form class="fb-form" id="fbForm">
+    <div class="row" id="fbTyp" role="group" aria-label="Typ pripomienky"></div>
+    <textarea id="fbText" maxlength="1500" placeholder="Napr. na iPhone sa mi nezobrazuje nákupný zoznam celý…" aria-label="Text pripomienky"></textarea>
+    <div class="fb-row"><label class="note">Týka sa: <select id="fbKde"><option>Recepty</option><option>Plán varenia</option><option>Nákupný zoznam</option><option>Čo mám doma</option><option>Dizajn</option><option>Iné</option></select></label>
+    <button class="btn main" type="submit" id="fbSend">Odoslať pripomienku</button></div>
+    <p class="note" id="fbNote" style="margin:0"></p>
+  </form>
+  <div class="fb-list" id="fbList"></div>
+</div>
+
+<div id="tab-recepty" role="tabpanel" aria-labelledby="t-recepty">
+<div class="filters">
+  <label class="searchbox"><span aria-hidden="true">🔎</span><input type="search" id="q" placeholder="Hľadaj surovinu alebo jedlo, napr. losos, cícer…" aria-label="Hľadať recept alebo surovinu"></label>
+  <div class="row" id="who" role="group" aria-label="Pre koho"></div>
+  <div class="row" id="cat" role="group" aria-label="Druh jedla"></div>
+  <div class="count" id="count" aria-live="polite"></div>
+</div>
+<div class="grid" id="grid"></div>
+</div>
+</div>
+
+<dialog id="dlg" aria-labelledby="d-title"><div id="sheet" class="sheet"></div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const DATA = __DATA__;
+const R = DATA.recepty;
+const DAYS = [["po","Po","pondelok","Pondelok"],["ut","Ut","utorok","Utorok"],["st","St","stredu","Streda"],["stv","Št","štvrtok","Štvrtok"],["pi","Pi","piatok","Piatok"],["so","So","sobotu","Sobota"],["ne","Ne","nedeľu","Nedeľa"]];
+const MODE_DAYS = {vikend:["so","ne"], tyzden:DAYS.map(d => d[0])};
+const emptyPlan = () => ({rezim:"vikend", dni:Object.fromEntries(DAYS.map(d => [d[0], []])), mam:[], poslane:null});
+let plan = emptyPlan(), pickDay = null, planRef = null, saveTimer = null;
+try { const s = JSON.parse(localStorage.getItem("hr-plan") || "null"); if (s && s.dni) plan = {...emptyPlan(), ...s, dni:{...emptyPlan().dni, ...s.dni}}; } catch (e) {}
+
+const EM = [
+  [/jarn[aáeé] cibu|jarnej cibu|jarných cibu|jarnú cibu|cibuľk/, "🌱"],
+  [/kokos/, "🥥"], [/losos|sumč|ryb|treš|sardin|tuniak/, "🐟"], [/krevet/, "🦐"],
+  [/kur[aie]|kurac|morč|mäso|merguez/, "🍗"], [/slanin/, "🥓"], [/tofu/, "🍱"],
+  [/vajc|vajíč|vajec|vajce/, "🥚"],
+  [/parmez|syr|feta|fety|mozzar|halloumi|karičk|kašar|cottage|lučin|philadelph|labneh/, "🧀"],
+  [/maslo|masla|ghí|ghee|masť/, "🧈"],
+  [/smotan|mliek|mlék|cmar|jogurt|skyr|crème/, "🥛"],
+  [/avok/, "🥑"], [/batát|sladk[ýé] zemiak/, "🍠"], [/zemiak|noky|nokov|gnocchi/, "🥔"],
+  [/mlet|údenej papr|údená papr|kari|rasc|kmín|kurkum|muškát|provens|pizza korenie|bylinky \(|sušen[ýá] cesnak|cesnakov[ýé] prášok|sušená cibu/, "🧂"],
+  [/cherry|paradaj|rajč|pretlak|kečup/, "🍅"], [/cesnak|strúčik/, "🧄"], [/cibu|šalotk|pór/, "🧅"],
+  [/mrkv/, "🥕"], [/uhork|cuket/, "🥒"], [/brokolic|karfiol|ružičkov/, "🥦"],
+  [/paprik/, "🫑"], [/chilli|čili|sriracha|tabasco/, "🌶️"], [/zázvor/, "🫚"],
+  [/špenát|šalát|kel |kel$|kapust|rukol/, "🥬"],
+  [/bazalk|petržl|kôpor|mät|korian|bylin|tymián|rozmar|šalvi|oregan|pažít|vňať/, "🌿"],
+  [/citrón|limet/, "🍋"], [/jablk|granátov/, "🍎"], [/nektár|broskyň/, "🍑"], [/melón/, "🍉"],
+  [/huby|húb|šampi|hliv/, "🍄"], [/fazu|šošovic|cícer|edamame|klíčk/, "🫘"],
+  [/orech|mandl|semien|sezam/, "🌰"], [/med|agáve|sirup|cukor|cukr|pudink|kakao|škoric/, "🍯"],
+  [/cestovin|rezanc|orzo|orza|udon|spaghet/, "🍝"],
+  [/múk|chlieb|chleb|tortill|pečiv|strúhank|cest|droždi|prášok do|kypria/, "🍞"],
+  [/ryž|rizot|arborio|basmati|quino|kuskus/, "🍚"], [/kukuric/, "🌽"],
+  [/oliv/, "🫒"], [/olej/, "🫗"], [/víno/, "🍷"],
+  [/sójov|omáčk|ocot|ocet|miso|tamari|teriyaki|horčic|majonéz|melas|nálev/, "🥫"],
+  [/vývar|bujón|voda|vody|vodu/, "🥣"], [/soľ|soli|korenie|koreni/, "🧂"]
+];
+const GENERIC = new Set(["🧂","🫗","🥣","🥫","🥄"]);
+const emojiFor = s => { const t = s.toLowerCase(); for (const [re, e] of EM) if (re.test(t)) return e; return "🥄"; };
+const heroEmoji = r => { const out = []; for (const s of r.suroviny) { const e = emojiFor(s); if (!GENERIC.has(e) && !out.includes(e)) out.push(e); if (out.length === 6) break; } while (out.length < 3) out.push("🍽️"); return out; };
+
+const CAT = {"polievka":["🍲","--c-polievka"],"šalát":["🥗","--c-salat"],"hlavné jedlo":["🍽️","--c-hlavne"],"raňajky":["🍳","--c-ranajky"],"pečivo":["🥐","--c-pecivo"],"dezert":["🍰","--c-dezert"],"príloha a snack":["🥨","--c-priloha"],"zásoba":["🫙","--c-zasoba"]};
+const WHO = [["vsetko","Všetko","🍴"],["ja","Môžem aj ja","💚"],["jaHned","Pre mňa bez úprav","✨"],["rodina","Len rodina","👨‍👩‍👧"],["rychle","Do 30 min","⏱️"]];
+const HANA = {ok:["ok","Pre teba OK"],uprava:["uprava","Pre teba s úpravou"],nie:["nie","Nie pre teba"]};
+const hanaLbl = r => (r.novy || typeof fb === "undefined" || fb.owner || !window.claude) ? HANA[r.hana] : [HANA[r.hana][0], {ok:"Hanina diéta: OK", uprava:"Hanina diéta: s úpravou", nie:"Hanina diéta: nie"}[r.hana]];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const por = n => n + " " + (n === 1 ? "porcia" : n < 5 ? "porcie" : "porcií");
+
+let st = {who:"vsetko", cat:"všetko", q:"", mood:""};
+const MOODS = [["energia","Potrebujem<br>energiu","⚡","Energia"],["utecha","Niečo na<br>útechu","🫶","Útecha"],["lahke","Ľahké<br>a svieže","🥗","Ľahké a svieže"],["rychlo","Rýchlo,<br>som hladná","⏱️","Rýchlo"]];
+const PROT = /vajc|vajíč|vajec|kur|morč|losos|ryb|tresk|tuniak|tofu|cícer|fazu|šošov|krevet|mäs|tvaroh|skyr|cottage|merguez|halloumi|edamame|tempeh/;
+function moodOk(r, m) {
+  const t = (r.nazov + " " + r.suroviny.join(" ")).toLowerCase(), n = r.nazov.toLowerCase();
+  if (m === "energia") return ["hlavné jedlo","raňajky","šalát"].includes(r.kategoria) && PROT.test(t);
+  if (m === "utecha") return ["polievka","dezert","pečivo"].includes(r.kategoria) || /kari|krém|zapek|zapeč|rizot|guláš|ragú|lasagn|syrov|čokol|dal\b/.test(n);
+  if (m === "lahke") return r.kategoria === "šalát" || (r.kcal && r.kcal <= 400 && !["dezert","pečivo"].includes(r.kategoria));
+  if (m === "rychlo") return r.cas_min <= 20;
+  return true;
+}
+function renderMoods() {
+  document.getElementById("moods").innerHTML = MOODS.map(([k, l, ic]) => `<button class="mood m-${k}" type="button" data-mood="${k}" aria-pressed="${st.mood === k}"><span class="ic" aria-hidden="true">${ic}</span><b>${l}</b></button>`).join("");
+}
+try { const s = JSON.parse(localStorage.getItem("hr-filters") || "null"); if (s) st = {...st, who:s.who || st.who, cat:s.cat || st.cat}; } catch (e) {}
+const save = () => { try { localStorage.setItem("hr-filters", JSON.stringify({who:st.who, cat:st.cat})); } catch (e) {} };
+
+function heroHTML(r, big) {
+  const e = heroEmoji(r), c = CAT[r.kategoria] || ["🍽️","--c-hlavne"];
+  const sc = e.slice(3, 6).map((x, i) => `<span class="scatter" style="${["left:8%;top:14%","right:10%;bottom:12%","left:12%;bottom:10%"][i]}">${x}</span>`).join("");
+  return `<div class="hero" style="background:var(${c[1]})">${sc}<div class="plate"><i>${e[0]}</i><i>${e[1]}</i><i>${e[2]}</i></div>${big ? "" : `<span class="time">${r.cas_min} min</span>`}</div>`;
+}
+function card(r) {
+  const h = hanaLbl(r);
+  const n = daysOf(r.id).length;
+  return `<div class="cw"><button class="add${n ? " in" : ""}" type="button" data-add="${esc(r.id)}" aria-label="Pridať ${esc(r.nazov)} do plánu">${n ? "✓ V pláne" : pickDay ? "+ Na " + dayName(pickDay)[1] : "+ Do plánu"}</button><button class="card" type="button" data-id="${esc(r.id)}" aria-label="${esc(r.nazov)}">
+    ${heroHTML(r)}
+    <div class="cbody"><span class="cat">${esc(r.kategoria)}</span><h3>${esc(r.nazov)}</h3>
+    <div class="badges">${r.kcal ? `<span class="b kc">🔥 ~${r.kcal} kcal</span>` : ""}${(KOM[r.id] || []).length ? `<span class="b cm">💬 ${KOM[r.id].length}${KOM[r.id].some(c => c.foto) ? " · 📷" : ""}</span>` : ""}<span class="b ${h[0]}">${h[1]}</span>${r.kompletny ? "" : `<span class="b nie">neúplný</span>`}${r.novy ? `<span class="b new">✨ nový nápad</span>` : ""}${(r.vek || []).map(v => { const x = VEK.find(y => y[0] === v); return x ? `<span class="b age">${x[2]} ${x[1]}</span>` : ""; }).join("")}${r.dokupit && r.dokupit.length ? `<span class="b buyb">🛒 dokúpiť ${r.dokupit.length}</span>` : ""}</div>${r.preco ? `<p class="why">${esc(r.preco)}</p>` : ""}</div></button></div>`;
+}
+function match(r) {
+  if (st.mood && !moodOk(r, st.mood)) return false;
+  if (st.cat !== "všetko" && r.kategoria !== st.cat) return false;
+  if (st.who === "ja" && r.hana === "nie") return false;
+  if (st.who === "jaHned" && r.hana !== "ok") return false;
+  if (st.who === "rodina" && r.pre !== "rodina") return false;
+  if (st.who === "rychle" && r.cas_min > 30) return false;
+  if (st.q) { const hay = (r.nazov + " " + r.suroviny.join(" ") + " " + r.autor).toLowerCase(); if (!st.q.toLowerCase().split(/\s+/).every(w => hay.includes(w))) return false; }
+  return true;
+}
+function chips(el, items, key) {
+  el.innerHTML = items.map(([v, l, ic]) => `<button class="chip" type="button" data-v="${esc(v)}" aria-pressed="${st[key] === v}"><span class="ic" aria-hidden="true">${ic}</span>${esc(l)}</button>`).join("");
+  el.onclick = e => { const b = e.target.closest("button"); if (!b) return; st[key] = b.dataset.v; save(); render(); };
+}
+function render() {
+  chips(document.getElementById("who"), WHO, "who");
+  const cats = ["všetko", ...Object.keys(CAT).filter(c => R.some(r => r.kategoria === c))];
+  chips(document.getElementById("cat"), cats.map(c => [c, c === "všetko" ? "Všetky jedlá" : c[0].toUpperCase() + c.slice(1), c === "všetko" ? "📖" : CAT[c][0]]), "cat");
+  const list = R.filter(match).sort((a, b) => a.cas_min - b.cas_min);
+  const md = MOODS.find(m => m[0] === st.mood);
+  document.getElementById("count").innerHTML = `${list.length} z ${R.length} receptov${md ? ` · nálada: <b>${md[3]}</b><button class="moodon" type="button" data-mood="">✕ zrušiť</button>` : ""}`;
+  document.getElementById("grid").innerHTML = list.length ? list.map(card).join("") : `<p class="empty">Nič nesedí. Skús iný filter alebo surovinu.</p>`;
+}
+function openRecipe(id) {
+  const r = byId(id); if (!r) return;
+  const h = hanaLbl(r);
+  const spot = "https://open.spotify.com/search/" + encodeURIComponent(r.hudba);
+  document.getElementById("sheet").innerHTML = `
+    <div style="position:relative">${heroHTML(r, true)}<button class="close" type="button" aria-label="Zavrieť" data-close>✕</button></div>
+    <div class="sbody">
+      <div style="display:grid;gap:8px"><span class="cat">${esc(r.kategoria)}</span><h2 id="d-title">${esc(r.nazov)}</h2>
+      <div class="facts"><span>⏱️ <b>${r.cas_min} min</b></span><span>🍽️ <b>${por(r.porcie)}</b></span>${r.kcal ? `<span>🔥 <b>~${r.kcal} kcal</b> na porciu (odhad)</span>` : ""}<span class="b ${h[0]}">${h[1]}</span></div></div>
+      ${r.preco ? `<div class="heal"><span class="em" aria-hidden="true">💜</span><div><strong>Prečo ti urobí dobre:</strong> ${esc(r.preco)}</div></div>` : ""}
+      ${r.hana_uprava ? `<div class="swap"><span class="em" aria-hidden="true">💚</span><div><strong>Pre teba:</strong> ${esc(r.hana_uprava)}</div></div>` : ""}
+      ${r.deti_tip ? `<div class="kidbox"><span class="em" aria-hidden="true">🧒</span><div><strong>Pre deti:</strong> ${esc(r.deti_tip)}</div></div>` : ""}
+      ${r.dokupit && r.dokupit.length ? `<div class="buybox"><span class="em" aria-hidden="true">🛒</span><div><strong>Treba dokúpiť:</strong> ${r.dokupit.map(esc).join(", ")}</div></div>` : ""}
+      ${r.poznamka ? `<p class="note" style="margin:0">⏰ ${esc(r.poznamka)}</p>` : ""}
+      <div><h4>Naplánovať na</h4>${dayPickHTML(r.id)}</div>
+      <div><h4>Suroviny</h4><ul class="ings">${r.suroviny.map(s => `<li><span class="ie" aria-hidden="true">${emojiFor(s)}</span><span>${esc(s)}</span></li>`).join("")}</ul></div>
+      <div><h4>Postup</h4><ol class="steps">${r.postup.map(s => `<li><span>${esc(s)}</span></li>`).join("")}</ol></div>
+      <div><h4>Komentáre a fotky</h4><div id="kom" class="kom" data-rid="${esc(r.id)}"></div></div>
+      <div class="foot"><a class="spot" href="${spot}" target="_blank" rel="noopener">🎵 Pustiť hudbu</a><span class="src">${r.novy ? "Nápad od Clauda" : "Zdroj: " + esc(r.autor)}</span></div>
+    </div>`;
+  showDlg();
+  komRender();
+}
+/* ---------- plán ---------- */
+const byId = id => R.find(r => r.id === id) || IDEAS.find(r => r.id === id) || (plan.vlastne || {})[id];
+const dayName = k => DAYS.find(d => d[0] === k);
+const daysOf = id => DAYS.filter(d => plan.dni[d[0]].includes(id)).map(d => d[0]);
+const planIds = () => [...new Set(MODE_DAYS[plan.rezim].flatMap(k => plan.dni[k]))];
+let toastT;
+function toast(msg) { const el = document.getElementById("toast"); el.textContent = msg; el.classList.add("on"); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove("on"), 2600); }
+function persist() {
+  plan.zmenene = new Date().toISOString();
+  const used = new Set(Object.values(plan.dni).flat());
+  plan.vlastne = Object.fromEntries(Object.entries(plan.vlastne || {}).filter(([k]) => used.has(k)));
+  try { localStorage.setItem("hr-plan", JSON.stringify(plan)); } catch (e) {}
+  if (!planRef) return;
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => planRef.set(JSON.parse(JSON.stringify(plan))).catch(() => {}), 600);
+}
+function toggleDay(id, k) {
+  const a = plan.dni[k], i = a.indexOf(id);
+  if (i < 0 && !R.some(r => r.id === id)) { const r = byId(id); if (r) plan.vlastne = {...(plan.vlastne || {}), [id]: r}; }
+  if (i >= 0) a.splice(i, 1); else a.push(id);
+  persist(); renderPlan(); render(); renderIdeas();
+  return i < 0;
+}
+function dayPickHTML(id) {
+  return `<div class="daypick" data-rid="${esc(id)}">${DAYS.map(([k, s]) => `<button type="button" data-day="${k}" aria-pressed="${plan.dni[k].includes(id)}">${s}<small>${plan.dni[k].length || "·"}</small></button>`).join("")}</div>`;
+}
+function renderPlan() {
+  document.querySelectorAll("#mode button").forEach(b => b.setAttribute("aria-pressed", b.dataset.m === plan.rezim));
+  document.getElementById("days").innerHTML = MODE_DAYS[plan.rezim].map(k => {
+    const d = dayName(k);
+    const items = plan.dni[k].map(byId).filter(Boolean).map(r => `<div class="pi"><span class="em" aria-hidden="true">${heroEmoji(r)[0]}</span><button class="t" type="button" data-open="${esc(r.id)}">${esc(r.nazov)}${r.kcal ? `<span class="k">~${r.kcal} kcal na porciu</span>` : ""}</button><button class="x" type="button" data-rm="${esc(r.id)}" data-day="${k}" aria-label="Odobrať ${esc(r.nazov)} (${d[3]})">✕</button></div>`).join("");
+    return `<div class="day"><span class="dn">${d[3]}</span>${items}<button class="addday" type="button" data-pick="${k}" aria-pressed="${pickDay === k}">${pickDay === k ? "Vyber recept nižšie…" : "+ Pridať recept"}</button></div>`;
+  }).join("");
+  const n = planIds().length;
+  document.getElementById("shopBtn").disabled = !n;
+  document.getElementById("shopBtn").textContent = n ? `🛒 Nákupný zoznam (${n} ${n === 1 ? "recept" : n < 5 ? "recepty" : "receptov"})` : "🛒 Nákupný zoznam";
+  const lb = document.getElementById("listBtn"), z = plan.zoznam;
+  lb.hidden = !z; if (z) lb.textContent = `📝 Online zoznam (${z.items.filter(x => x.ok).length}/${z.items.length})`;
+  const ps = plan.poslane;
+  document.getElementById("sent").textContent = ps ? `✓ Poslané Claudovi ${new Date(ps.kedy).toLocaleString("sk-SK", {weekday:"short", hour:"2-digit", minute:"2-digit"})}` : n ? "Vyber recepty, potom pozri nákupný zoznam." : "Zatiaľ prázdne. Pridaj recepty cez + na karte.";
+  const pk = document.getElementById("picking");
+  pk.hidden = !pickDay;
+  if (pickDay) pk.innerHTML = `<span>📅 Vyberáš recept na ${dayName(pickDay)[2]}</span><button type="button" data-cancel>Zrušiť</button>`;
+}
+function openPicker(id) {
+  const r = byId(id);
+  document.getElementById("sheet").innerHTML = `<div class="pad" style="position:relative"><button class="close" type="button" aria-label="Zavrieť" data-close>✕</button>
+    <div style="display:grid;gap:6px;padding-right:44px"><span class="cat">Do plánu</span><h2 id="d-title">Kedy uvaríš ${esc(r.nazov)}?</h2></div>
+    ${dayPickHTML(id)}<p class="note" style="margin:0">Ťukni na deň. Číslo pod dňom ukazuje, koľko receptov tam už máš.</p></div>`;
+  showDlg();
+}
+function shoppingList() {
+  const ids = planIds(), map = new Map();
+  for (const id of ids) { const r = byId(id); if (!r) continue;
+    for (const s of r.suroviny) { const key = s.toLowerCase().trim(); if (!map.has(key)) map.set(key, {s, e:emojiFor(s), z:[]}); map.get(key).z.push(r.nazov); } }
+  return [...map.values()];
+}
+function openShop() {
+  const list = shoppingList();
+  const main = list.filter(x => !GENERIC.has(x.e)), basic = list.filter(x => GENERIC.has(x.e));
+  const li = x => `<li class="${plan.mam.includes(x.s) ? "have" : ""}"><span class="ie" aria-hidden="true">${x.e}</span><span><span class="txt">${esc(x.s)}</span><br><span class="who">${esc(x.z.join(" · "))}</span></span><input type="checkbox" data-have="${esc(x.s)}" ${plan.mam.includes(x.s) ? "checked" : ""} aria-label="Mám doma: ${esc(x.s)}"></li>`;
+  const label = plan.rezim === "vikend" ? "víkend" : "celý týždeň";
+  document.getElementById("sheet").innerHTML = `<div class="pad" style="position:relative"><button class="close" type="button" aria-label="Zavrieť" data-close>✕</button>
+    <div style="display:grid;gap:6px;padding-right:44px"><span class="cat">Nákup na ${label}</span><h2 id="d-title">Čo treba kúpiť</h2>
+    <p class="note" style="margin:0">Zaškrtni, čo už máš doma.${window.HR_WEB ? "" : " Claude potom dá do košíka na Rohlíku len zvyšok."}</p></div>
+    <ul class="ings shop">${main.map(li).join("")}</ul>
+    ${basic.length ? `<details><summary>Základy, ktoré asi máš (${basic.length})</summary><ul class="ings shop" style="margin-top:10px">${basic.map(li).join("")}</ul></details>` : ""}
+    <div class="how"><strong>Mám vytvoriť nákup v Rohlik.cz, alebo ti stačí online zoznam?</strong>
+      <div class="two"><button type="button" data-send><b>🛒 Košík v Rohlik.cz</b><span>${window.HR_WEB ? "Zoznam s odkazmi na Rohlík, nakúpiš sama." : "Claude naplní košík, objednávku dokončíš sama."}</span></button>
+      <button type="button" data-online><b>📝 Len online zoznam</b><span>Zoznam na odškrtávanie v obchode, na mobile aj počítači.</span></button></div>
+      <p class="note" id="sendNote" style="margin:0">${plan.poslane && !window.HR_WEB ? "Už si raz poslala do Rohlíka. Ak si plán zmenila, pošli znova." : ""}</p></div>
+    <div class="foot" style="border:0;padding:0"><button class="btn ghost" type="button" data-copy>📋 Kopírovať zoznam</button></div></div>`;
+  showDlg();
+}
+function openList() {
+  const z = plan.zoznam; if (!z) return;
+  const done = z.items.filter(x => x.ok).length;
+  document.getElementById("sheet").innerHTML = `<div class="pad" style="position:relative"><button class="close" type="button" aria-label="Zavrieť" data-close>✕</button>
+    <div style="display:grid;gap:6px;padding-right:44px"><span class="cat">Online nákupný zoznam</span><h2 id="d-title">Na nákup</h2>
+    <p class="note" style="margin:0">${done} z ${z.items.length} v košíku · ${esc(z.recepty.map(id => (byId(id) || {}).nazov).filter(Boolean).join(", "))}</p></div>
+    <div class="prog" aria-hidden="true"><i style="width:${z.items.length ? Math.round(done / z.items.length * 100) : 0}%"></i></div>
+    <ul class="ings list">${z.items.map((x, i) => `<li class="${x.ok ? "done" : ""}"><span class="ie" aria-hidden="true">${emojiFor(x.s)}</span><span><span class="txt">${esc(x.s)}</span>${z.rohlik ? `<br><a class="rl" href="https://www.rohlik.cz/hledat?q=${encodeURIComponent(rohlikQ(x.s))}" target="_blank" rel="noopener">Hľadať na Rohlíku ↗</a>` : ""}</span><input type="checkbox" data-li="${i}" ${x.ok ? "checked" : ""} aria-label="Kúpené: ${esc(x.s)}"></li>`).join("")}</ul>
+    <form class="addown" id="listAdd"><input id="listIn" placeholder="Pridať ďalšiu vec…" aria-label="Pridať položku do zoznamu"><button type="submit">Pridať</button></form>
+    <div class="foot" style="border:0;padding:0"><button class="btn ghost" type="button" data-copy>📋 Kopírovať</button><button class="btn ghost" type="button" data-dellist>Zmazať zoznam</button></div></div>`;
+  showDlg();
+}
+const rohlikQ = s => s.replace(/\(.*?\)/g, "").replace(/^[\d\s\/,.½¼¾–-]+/, "").replace(/^(g|kg|dkg|ml|dl|l|ks|pl|čl|hrst\w*|plechovk\w*|balen\w*|pohár\w*|strúčik\w*|kúsok|štipk\w*|zväzok\w*|vrecúšk\w*)\s+/i, "").trim() || s;
+function textList() {
+  const need = shoppingList().filter(x => !plan.mam.includes(x.s) && !GENERIC.has(x.e));
+  if (plan.zoznam && document.querySelector("#dlg .list")) return "Nákup:\n" + plan.zoznam.items.filter(x => !x.ok).map(x => "– " + x.s).join("\n");
+  const rec = planIds().map(id => "• " + byId(id).nazov).join("\n");
+  return `Plán (${plan.rezim === "vikend" ? "víkend" : "týždeň"}):\n${rec}\n\nKúpiť:\n${need.map(x => "– " + x.s).join("\n")}`;
+}
+function showDlg() { const d = document.getElementById("dlg"); if (typeof d.showModal === "function") { if (!d.open) d.showModal(); } else d.setAttribute("open", ""); d.scrollTop = 0; }
+
+const gridClick = e => {
+  const a = e.target.closest("[data-add]");
+  if (a) { const id = a.dataset.add;
+    if (pickDay) { const k = pickDay; pickDay = null; if (!plan.dni[k].includes(id)) toggleDay(id, k); else { renderPlan(); render(); } toast(`Pridané na ${dayName(k)[2]} ✓`); document.querySelector(".week").scrollIntoView({behavior:"smooth", block:"start"}); }
+    else openPicker(id);
+    return; }
+  const c = e.target.closest(".card"); if (c) openRecipe(c.dataset.id);
+};
+document.getElementById("grid").addEventListener("click", gridClick);
+document.getElementById("ideas").addEventListener("click", gridClick);
+document.getElementById("mode").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; plan.rezim = b.dataset.m; persist(); renderPlan(); });
+document.getElementById("days").addEventListener("click", e => {
+  const o = e.target.closest("[data-open]"); if (o) return openRecipe(o.dataset.open);
+  const x = e.target.closest("[data-rm]"); if (x) { toggleDay(x.dataset.rm, x.dataset.day); return; }
+  const p = e.target.closest("[data-pick]"); if (p) { pickDay = pickDay === p.dataset.pick ? null : p.dataset.pick; renderPlan(); render(); if (pickDay) { renderIdeas(); document.querySelector(".tabs").scrollIntoView({behavior:"smooth", block:"start"}); } }
+});
+document.getElementById("picking").addEventListener("click", e => { if (e.target.closest("[data-cancel]")) { pickDay = null; renderPlan(); render(); renderIdeas(); } });
+document.getElementById("shopBtn").addEventListener("click", openShop);
+document.getElementById("listBtn").addEventListener("click", openList);
+const dlg = document.getElementById("dlg");
+dlg.addEventListener("click", e => {
+  if (e.target === dlg || e.target.closest("[data-close]")) return dlg.close();
+  const dp = e.target.closest(".daypick [data-day]");
+  if (dp) { const id = dp.closest(".daypick").dataset.rid, k = dp.dataset.day; const added = toggleDay(id, k);
+    dp.setAttribute("aria-pressed", added); dp.querySelector("small").textContent = plan.dni[k].length || "·";
+    toast(added ? `Pridané na ${dayName(k)[2]} ✓` : `Odobraté (${dayName(k)[3]})`); return; }
+  if (e.target.closest("[data-copy]")) { const t = textList(); (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => toast("Skopírované ✓"), () => toast("Kopírovanie nefunguje v tomto prehliadači")); return; }
+  if (e.target.closest("[data-online]")) {
+    const need = shoppingList().filter(x => !plan.mam.includes(x.s) && !GENERIC.has(x.e)).map(x => ({s:x.s, ok:false}));
+    plan.zoznam = {kedy:new Date().toISOString(), recepty:planIds(), items:need};
+    persist(); renderPlan(); openList(); toast("Zoznam je pripravený ✓"); return; }
+  if (e.target.closest("[data-dellist]")) { if (confirm("Zmazať online zoznam?")) { plan.zoznam = null; persist(); renderPlan(); dlg.close(); } return; }
+  if (e.target.closest("[data-send]") && window.HR_WEB) {
+    const need = shoppingList().filter(x => !plan.mam.includes(x.s) && !GENERIC.has(x.e)).map(x => ({s:x.s, ok:false}));
+    plan.zoznam = {kedy:new Date().toISOString(), recepty:planIds(), items:need, rohlik:true};
+    persist(); renderPlan(); openList(); toast("Zoznam pre Rohlík je pripravený ✓"); return; }
+  if (e.target.closest("[data-send]")) {
+    const need = shoppingList().filter(x => !plan.mam.includes(x.s) && !GENERIC.has(x.e)).map(x => x.s);
+    plan.poslane = {kedy:new Date().toISOString(), rezim:plan.rezim, recepty:planIds(), kupit:need};
+    persist(); renderPlan();
+    document.getElementById("sendNote").textContent = planRef ? "Odoslané ✓ Napíš mi v chate „naplň košík“ a dám doň len tieto suroviny." : "Uložené v tomto zariadení. Skopíruj zoznam a pošli mi ho v chate, naplním podľa neho košík.";
+    toast("Odoslané ✓"); return; }
+});
+dlg.addEventListener("submit", e => { if (e.target.id !== "listAdd") return; e.preventDefault(); const v = document.getElementById("listIn").value.trim();
+  if (v && plan.zoznam) { plan.zoznam.items.push({s:v, ok:false}); persist(); renderPlan(); openList(); document.getElementById("listIn").focus(); } });
+dlg.addEventListener("change", e => { const l = e.target.closest("[data-li]");
+  if (l && plan.zoznam) { plan.zoznam.items[+l.dataset.li].ok = l.checked; persist(); renderPlan(); const y = dlg.scrollTop; openList(); dlg.scrollTop = y; return; } });
+dlg.addEventListener("change", e => { const c = e.target.closest("[data-have]"); if (!c) return; const s = c.dataset.have, i = plan.mam.indexOf(s);
+  if (c.checked && i < 0) plan.mam.push(s); if (!c.checked && i >= 0) plan.mam.splice(i, 1);
+  c.closest("li").classList.toggle("have", c.checked); persist(); });
+
+(async () => {
+  try {
+    if (!window.claude) return;
+    const [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+    if (!db || !user) return;
+    const uid = await user.id(); if (!uid) return;
+    planRef = db.doc("plany/" + uid);
+    fbInit(db, user, uid);
+    const snap = await planRef.get();
+    const d = snap && snap.exists ? JSON.parse(JSON.stringify(snap.data())) : null;
+    if (d && d.dni && (!plan.zmenene || (d.zmenene || "") >= plan.zmenene)) { plan = {...emptyPlan(), ...d, dni:{...emptyPlan().dni, ...d.dni}}; if (!Array.isArray(plan.doma)) { const own = await user.isOwner().catch(() => false); plan.doma = own ? FROM_FRIDGE.slice() : []; plan.domaZFotky = own; } if (!Array.isArray(plan.dokupit)) plan.dokupit = []; if (!plan.nap) plan.nap = {pre:"rodina", cas:"45"}; try { localStorage.setItem("hr-plan", JSON.stringify(plan)); } catch (e) {} renderPlan(); render(); renderDoma(); renderIdeas(); }
+    else if (plan.zmenene) persist();
+  } catch (e) { planRef = null; }
+})();
+document.getElementById("q").addEventListener("input", e => { st.q = e.target.value.trim(); render(); });
+document.getElementById("total").textContent = R.length;
+/* ---------- čo mám doma ---------- */
+const PANTRY = [
+  ["zelenina","Zelenina","🥕",["mrkva","cuketa","patizón","kaleráb","kapusta","paprika","cibuľa","cesnak","zázvor","paradajky","cherry paradajky","uhorka","brokolica","karfiol","špenát","listový šalát","pór","batáty","tekvica hokkaido","baklažán","avokádo","kukurica","hrášok","jarná cibuľka"]],
+  ["huby","Huby a bylinky","🍄",["hlivy","šampiňóny","petržlenová vňať","bazalka","koriander","kôpor","mäta","pažítka"]],
+  ["maso","Mäso a ryby","🍗",["kuracie prsia","kuracie stehná","mleté mäso","bravčová panenka","merguez","slanina","šunka","losos","treska","tuniak v konzerve","krevety"]],
+  ["mliecne","Mliečne a vajcia","🥚",["vajcia","maslo","mlieko","rastlinná smotana na varenie","smotana na šľahanie","biely jogurt","syr","parmezán","mozzarella","feta","halloumi","cottage","tvaroh","lučina"]],
+  ["prilohy","Strukoviny a prílohy","🫘",["cícer","fazuľa","šošovica","bezlepkové cestoviny","quinoa","pohánka","polenta","bezlepkové vločky","cestoviny (rodina)","ryža (rodina)","zemiaky (rodina)","tortilly (rodina)","chlieb (rodina)"]],
+  ["konzervy","Konzervy a omáčky","🥫",["krájané paradajky","paradajková omáčka","kokosové mlieko","sójová omáčka","sweet chilli omáčka","chilli omáčka","kečup","horčica","pesto","olivy","tahini","med","červené víno","arašidové maslo"]],
+  ["ovocie","Ovocie a orechy","🍋",["citrón","limetka","jablká","banány","bobuľové ovocie","pomaranč","vlašské orechy","mandle","semienka"]]
+];
+const FROM_FRIDGE = ["vajcia","maslo","mlieko","rastlinná smotana na varenie","syr","paprika","horčica","merguez","hlivy","patizón","mrkva","cuketa","kaleráb","kapusta","kečup","sójová omáčka","sweet chilli omáčka","chilli omáčka","červené víno","cibuľa","zázvor","krájané paradajky","paradajková omáčka","olivy"];
+const PEM = {"patizón":"🎃","kaleráb":"🥬","tekvica hokkaido":"🎃","baklažán":"🍆","hrášok":"🫛","uhorka":"🥒","pór":"🧅","polenta":"🌽","pohánka":"🌾","quinoa":"🌾","bezlepkové vločky":"🥣","tvaroh":"🥛","tahini":"🥜","pesto":"🌿","arašidové maslo":"🥜","banány":"🍌","bobuľové ovocie":"🫐","pomaranč":"🍊","bravčová panenka":"🥩","mleté mäso":"🥩","šunka":"🥓","treska":"🐟","tuniak v konzerve":"🐟","biely jogurt":"🥛","smotana na šľahanie":"🥛","med":"🍯","cesnak":"🧄","hlivy":"🍄","šampiňóny":"🍄","zemiaky (rodina)":"🥔","chlieb (rodina)":"🍞","červené víno":"🍷","horčica":"🟡","kečup":"🍅","jarná cibuľka":"🌱","cícer":"🫘","kukurica":"🌽","fazuľa":"🫘","šošovica":"🫘"};
+const pem = x => PEM[x] || emojiFor(x);
+const DIETY = [["lepok","bez lepku","🌾"],["ryza","bez ryže","🍚"],["zemiaky","bez zemiakov","🥔"],["vypraz","nič vyprážané","🍟"],["laktoza","bez laktózy","🥛"],["vege","vegetariánske","🥦"],["vegan","vegánske","🌱"],["orechy","bez orechov","🥜"],["bravc","bez bravčového","🐖"],["ryby","bez rýb","🐟"],["pikant","nie pikantné","🌶️"]];
+const HANA_PROF = {dieta:["lepok","ryza","zemiaky","vypraz"], ine:"", osoby:3, rodinaPopis:"ty + deti 13 a 15"};
+const prof = () => plan.profil || (fb.owner || !window.claude ? HANA_PROF : {dieta:[], ine:"", osoby:2, rodinaPopis:""});
+function editProf(fn) { const pr = JSON.parse(JSON.stringify(prof())); fn(pr); plan.profil = pr; persist(); renderDoma(); renderPills(); }
+function dietText(pr) { const d = DIETY.filter(x => pr.dieta.includes(x[0])).map(x => x[1]); if (pr.ine) d.push(pr.ine); return d.join(", "); }
+function renderPills() {
+  const pr = prof(), dt = dietText(pr);
+  document.getElementById("pills").innerHTML = `<span class="pill">Tvoja diéta: <b>${esc(dt || "žiadne obmedzenia")}</b></span><span class="pill">Varíš pre ${pr.osoby} ${pr.osoby === 1 ? "osobu" : pr.osoby < 5 ? "osoby" : "osôb"}${pr.rodinaPopis ? " (" + esc(pr.rodinaPopis) + ")" : ""}</span>`;
+}
+function renderProf() {
+  const pr = prof();
+  document.getElementById("prof").innerHTML = `<h3><span aria-hidden="true" style="font-family:var(--emoji)">⚙️</span>Moja diéta a rodina</h3>
+    <div class="items">${DIETY.map(([k, l, ic]) => `<button class="it" type="button" data-diet="${k}" aria-pressed="${pr.dieta.includes(k)}"><span class="ic" aria-hidden="true">${ic}</span>${l}</button>`).join("")}</div>
+    <div class="r"><input type="text" id="dietIne" maxlength="120" value="${esc(pr.ine)}" placeholder="Iné obmedzenia, napr. bez húb" aria-label="Iné obmedzenia v strave">
+    <span class="note">Koľko vás je:</span><span class="step"><button type="button" data-os="-1" aria-label="Menej osôb">−</button><output>${pr.osoby}</output><button type="button" data-os="1" aria-label="Viac osôb">+</button></span></div>`;
+}
+const OPT_PRE = [["rodina","Pre rodinu, s úpravou pre mňa","👨‍👩‍👧"],["ja","Len pre mňa","💚"]];
+const OPT_CAS = [["30","Do 30 min","⏱️"],["45","Do 45 min","🕒"]];
+const VEK = [["0-3","0–3 roky","👶","batoľatá 0–3 roky: mäkké textúry, malé kúsky bez rizika zadusenia (žiadne celé orechy, celé hrozno či cherry), bez pridanej soli a cukru, do 1 roka bez medu, nie pikantné"],["4-7","4–7 rokov","🧒","deti 4–7 rokov: jemná chuť, nie pikantné, farebné a zábavné, jedlo do ruky, schovaná zelenina"],["8-12","8–12 rokov","🧑‍🎓","deti 8–12 rokov: známe chute s malým prekvapením, nie príliš pikantné, môžu pomôcť s varením"],["teen","Teenageri","🛹","teenageri: sýte, väčšie porcie, obľúbené chute (wrapy, bowly, cestoviny, burgre), dosť bielkovín"],["dosp","Dospelí","🍷","dospelí: výraznejšie chute a korenie"]];
+let IDEAS = [], ideaState = "idle", ideaErr = "", ideaCtl = null;
+try { const s = JSON.parse(localStorage.getItem("hr-ideas") || "null"); if (Array.isArray(s)) IDEAS = s; } catch (e) {}
+if (!Array.isArray(plan.doma)) { plan.doma = FROM_FRIDGE.slice(); plan.domaZFotky = true; }
+if (!Array.isArray(plan.dokupit)) plan.dokupit = [];
+if (!plan.nap) plan.nap = {pre:"rodina", cas:"45"};
+let tab = "recepty";
+try { const s = localStorage.getItem("hr-tab"); tab = ["doma","fb"].includes(s) ? s : "recepty"; } catch (e) {}
+
+function setTab(v) {
+  tab = v; try { localStorage.setItem("hr-tab", v); } catch (e) {}
+  document.querySelectorAll(".tabs [data-tab]").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === v));
+  document.getElementById("tab-recepty").hidden = v !== "recepty";
+  document.getElementById("tab-doma").hidden = v !== "doma";
+  document.getElementById("tab-fb").hidden = v !== "fb";
+}
+function optChips(el, items, key) {
+  el.innerHTML = items.map(([v, l, ic]) => `<button class="chip" type="button" data-v="${v}" aria-pressed="${plan.nap[key] === v}"><span class="ic" aria-hidden="true">${ic}</span>${esc(l)}</button>`).join("");
+  el.onclick = e => { const b = e.target.closest("button"); if (!b) return; plan.nap[key] = b.dataset.v; persist(); renderDoma(); };
+}
+function renderDoma() {
+  renderProf();
+  const own = plan.doma.filter(x => !PANTRY.some(g => g[3].includes(x)));
+  document.getElementById("groups").innerHTML = PANTRY.map(([k, name, ic, items]) => {
+    const buy = plan.dokupit.includes(k);
+    const list = k === "zelenina" ? items : items;
+    return `<div class="grp${buy ? " buyable" : ""}"><div class="grp-h"><h3><span class="ic" aria-hidden="true">${ic}</span>${name}</h3>
+      <label class="buy"><input type="checkbox" data-buy="${k}" ${buy ? "checked" : ""}><span>Viem dokúpiť</span></label></div>
+      <div class="items">${list.map(x => `<button class="it" type="button" data-it="${esc(x)}" aria-pressed="${plan.doma.includes(x)}"><span class="ic" aria-hidden="true">${pem(x)}</span>${esc(x)}</button>`).join("")}</div></div>`;
+  }).join("") + `<div class="grp"><div class="grp-h"><h3><span class="ic" aria-hidden="true">✍️</span>Niečo iné</h3></div>
+      ${own.length ? `<div class="items">${own.map(x => `<button class="it" type="button" data-it="${esc(x)}" aria-pressed="true"><span class="ic" aria-hidden="true">${pem(x)}</span>${esc(x)} ✕</button>`).join("")}</div>` : ""}
+      <form class="addown" id="addOwn"><input id="ownIn" placeholder="napr. tofu, kimchi…" aria-label="Pridať vlastnú surovinu"><button type="submit">Pridať</button></form></div>`;
+  optChips(document.getElementById("optPre"), OPT_PRE, "pre");
+  optChips(document.getElementById("optCas"), OPT_CAS, "cas");
+  if (!Array.isArray(plan.nap.vek)) plan.nap.vek = ["teen","dosp"];
+  const ov = document.getElementById("optVek");
+  ov.innerHTML = VEK.map(([v, l, ic]) => `<button class="chip" type="button" data-v="${v}" aria-pressed="${plan.nap.vek.includes(v)}"><span class="ic" aria-hidden="true">${ic}</span>${esc(l)}</button>`).join("");
+  ov.onclick = e => { const b = e.target.closest("button"); if (!b) return; const a = plan.nap.vek, i = a.indexOf(b.dataset.v);
+    if (i >= 0) { if (a.length > 1) a.splice(i, 1); } else a.push(b.dataset.v); persist(); renderDoma(); };
+  const buyNames = PANTRY.filter(g => plan.dokupit.includes(g[0])).map(g => g[1].toLowerCase());
+  document.getElementById("fridgeNote").hidden = !plan.domaZFotky;
+  const nd = plan.doma.length;
+  document.getElementById("genSum").textContent = `Máš ${nd} ${nd === 1 ? "surovinu" : nd > 1 && nd < 5 ? "suroviny" : "surovín"}` + (buyNames.length ? ` · dokúpiš: ${buyNames.join(", ")}` : " · nič nedokupuješ");
+  const gb = document.getElementById("genBtn");
+  gb.disabled = ideaState === "busy";
+  gb.textContent = ideaState === "busy" ? "Vymýšľam…" : IDEAS.length ? "✨ Vymysli mi niečo iné" : "✨ Vymysli mi niečo dobré";
+}
+function renderIdeas() {
+  const w = document.getElementById("ideasWrap");
+  if (ideaState === "busy") w.innerHTML = `<div class="think"><span class="pot" aria-hidden="true">🍳</span><div><strong>Vymýšľam recepty z tvojich surovín…</strong><br><span class="note">Zvyčajne to trvá do minúty.</span></div><button class="btn ghost" type="button" id="stopBtn" style="margin-left:auto">Zastaviť</button></div>`;
+  else if (ideaState === "err") w.innerHTML = `<div class="think"><span class="pot" style="animation:none" aria-hidden="true">🤔</span><div>${ideaErr}</div></div>`;
+  else w.innerHTML = IDEAS.length ? `<div class="ideas-st"><h2>Nápady pre teba</h2><span class="note">Pridaj si ich do plánu cez + na karte.</span></div>` : "";
+  document.getElementById("ideas").innerHTML = ideaState === "busy" ? "" : IDEAS.map(card).join("");
+}
+function ideaPrompt() {
+  const buy = PANTRY.filter(g => plan.dokupit.includes(g[0]));
+  const fam = plan.nap.pre === "rodina", pr = prof(), dt = dietText(pr);
+  return `Si kreatívny domáci kuchár. Navrhni 4 NOVÉ recepty pre používateľku. Chce jednoduché, zaujímavé a chutné jedlá, nič nudné. Každý recept z inej kuchyne alebo iného typu.
+
+JEJ DIÉTA (prísne): ${dt || "žiadne obmedzenia"}.
+${fam ? `Varí pre ${pr.osoby} ${pr.osoby === 1 ? "osobu" : "osoby"}${pr.rodinaPopis ? " (" + pr.rodinaPopis + ")" : ""}, porcie: ${pr.osoby}. Ostatní v rodine diétu nemajú. Ak recept obsahuje niečo, čo ona nesmie, daj "hana":"uprava" a do "hana_uprava" napíš jednoduchú úpravu pre jej porciu. Inak "hana":"ok" a "hana_uprava":"". "pre":"oboje" ak je to pre všetkých bez úprav, inak "rodina".` : `Varí len pre seba, 1 až 2 porcie. Recept musí úplne spĺňať jej diétu, "hana":"ok", "pre":"hana", "hana_uprava":"".`}
+Celkový čas najviac ${plan.nap.cas} minút.
+${(() => { const v = VEK.filter(x => (plan.nap.vek || ["teen","dosp"]).includes(x[0])); const kids = v.some(x => ["0-3","4-7","8-12"].includes(x[0]));
+  return `PRE AKÝ VEK: recepty musia sedieť týmto vekovým skupinám: ${v.map(x => x[3]).join("; ")}.` + (kids ? ` Ak varí aj pre malé deti, nastav porcie podľa toho a do "deti_tip" napíš, ako upraviť porciu pre dieťa (napr. odložiť pred korenením, rozmixovať, nakrájať). Inak "deti_tip":"".` : ` "deti_tip":"".`) + ` Do "vek" daj zoznam kľúčov z [${v.map(x => '"' + x[0] + '"').join(",")}], pre ktoré sa recept hodí.`; })()}
+
+DOMA MÁ: ${plan.doma.join(", ")}.
+Predpokladaj aj základy: soľ, korenie, sušené koreniny, olej, ocot, cukor, voda.
+${buy.length ? `Dokúpiť smie suroviny z kategórií: ${buy.map(g => g[1] + " (napr. " + g[3].slice(0, 5).join(", ") + ")").join("; ")}. Z iných kategórií nič nedokupuj.` : "Nič nedokupuj, použi len to, čo má doma, plus základy."}
+Recept stavaj hlavne na tom, čo má doma. Do "kcal" daj realistický odhad kalórií na 1 porciu (celé číslo). Do "dokupit" daj len to, čo treba kúpiť (prázdne pole, ak nič).
+Nenavrhuj tieto recepty, tie už má: ${R.map(r => r.nazov).join("; ")}.
+
+Odpovedz IBA JSON poľom so 4 objektmi, všetok text po slovensky:
+[{"nazov":"…","kategoria":"hlavné jedlo|šalát|polievka|raňajky|dezert|príloha a snack","cas_min":30,"porcie":4,"pre":"oboje","hana":"ok","hana_uprava":"","suroviny":["200 g cíceru", "…"],"dokupit":["…"],"postup":["krátky krok", "…"],"kcal":450,"vek":["teen"],"deti_tip":"","hudba":"anglický Spotify vyhľadávací dotaz na playlist k vareniu, napr. italian summer dinner","preco":"jedna krátka veta, prečo to bude dobré"}]`;
+}
+async function generate() {
+  if (ideaState === "busy") return;
+  const sample = window.claude ? await window.claude.use("sample") : null;
+  if (!sample) { ideaState = "err"; ideaErr = "Nové nápady fungujú, keď stránku otvoríš v aplikácii Claude alebo na claude.ai. Môžeš mi aj napísať do chatu, čo máš doma."; renderIdeas(); return; }
+  ideaState = "busy"; ideaCtl = new AbortController(); renderDoma(); renderIdeas();
+  document.getElementById("ideasWrap").scrollIntoView({behavior:"smooth", block:"center"});
+  try {
+    const out = await sample.json(ideaPrompt(), {signal:ideaCtl.signal, cache:false});
+    const ts = Date.now().toString(36);
+    const list = (Array.isArray(out) ? out : []).filter(r => r && r.nazov && Array.isArray(r.suroviny) && Array.isArray(r.postup)).slice(0, 6).map((r, i) => ({
+      id:`napad-${ts}-${i}`, nazov:String(r.nazov), autor:"Nápad od Clauda", kategoria:CAT[r.kategoria] ? r.kategoria : "hlavné jedlo",
+      cas_min:Number(r.cas_min) || Number(plan.nap.cas), porcie:Number(r.porcie) || (plan.nap.pre === "rodina" ? 4 : 1),
+      pre:["rodina","oboje","hana"].includes(r.pre) ? r.pre : "oboje", hana:r.hana === "uprava" ? "uprava" : "ok", hana_uprava:String(r.hana_uprava || ""),
+      suroviny:r.suroviny.map(String), dokupit:Array.isArray(r.dokupit) ? r.dokupit.map(String) : [], postup:r.postup.map(String),
+      kcal:Math.round(Number(r.kcal) / 10) * 10 || 0, vek:Array.isArray(r.vek) ? r.vek.filter(v => VEK.some(x => x[0] === v)) : [], deti_tip:String(r.deti_tip || ""), hudba:String(r.hudba || "cooking music"), preco:String(r.preco || ""), kompletny:true, novy:true }));
+    if (!list.length) throw {code:"invalid_json"};
+    IDEAS = list; ideaState = "idle";
+    try { localStorage.setItem("hr-ideas", JSON.stringify(IDEAS)); } catch (e) {}
+  } catch (e) {
+    ideaState = e && e.code === "cancelled" ? "idle" : "err";
+    ideaErr = ({not_granted:window.HR_WEB ? "Najprv sa prihlás." : "Bez povolenia ti nápady neviem vymyslieť. Povoliť to môžeš v menu tejto stránky (Povolenia).", limit:"Na dnes si už nápady vyčerpala. Zajtra si môžeš dať vymyslieť ďalšie.", rate_limited:"Teraz toho bolo veľa naraz. Skús to o chvíľu znova.", invalid_json:"Nápady sa nepodarilo prečítať. Skús to znova."})[e && e.code] || "Niečo sa nepodarilo. Skús to znova.";
+  }
+  renderDoma(); renderIdeas();
+}
+document.querySelector(".tabs").addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (b) setTab(b.dataset.tab); });
+document.getElementById("groups").addEventListener("click", e => {
+  const b = e.target.closest("[data-it]"); if (!b) return;
+  const x = b.dataset.it, i = plan.doma.indexOf(x);
+  if (i >= 0) plan.doma.splice(i, 1); else plan.doma.push(x);
+  plan.domaZFotky = false;
+  persist(); renderDoma();
+});
+document.getElementById("groups").addEventListener("change", e => {
+  const c = e.target.closest("[data-buy]"); if (!c) return;
+  const k = c.dataset.buy, i = plan.dokupit.indexOf(k);
+  if (c.checked && i < 0) plan.dokupit.push(k); if (!c.checked && i >= 0) plan.dokupit.splice(i, 1);
+  persist(); renderDoma();
+});
+document.getElementById("groups").addEventListener("submit", e => {
+  e.preventDefault(); const v = document.getElementById("ownIn").value.trim().toLowerCase();
+  if (v && !plan.doma.includes(v)) { plan.doma.push(v); plan.domaZFotky = false; persist(); }
+  renderDoma(); document.getElementById("ownIn").focus();
+});
+document.getElementById("genBtn").addEventListener("click", generate);
+document.getElementById("prof").addEventListener("click", e => {
+  const d = e.target.closest("[data-diet]"), o = e.target.closest("[data-os]");
+  if (d) editProf(pr => { const i = pr.dieta.indexOf(d.dataset.diet); if (i >= 0) pr.dieta.splice(i, 1); else pr.dieta.push(d.dataset.diet); });
+  if (o) editProf(pr => { pr.osoby = Math.max(1, Math.min(10, pr.osoby + Number(o.dataset.os))); if (plan.profil && pr.osoby !== 3) pr.rodinaPopis = ""; });
+});
+document.getElementById("prof").addEventListener("change", e => { if (e.target.id === "dietIne") editProf(pr => { pr.ine = e.target.value.trim().slice(0, 120); }); });
+document.getElementById("ideasWrap").addEventListener("click", e => { if (e.target.closest("#stopBtn") && ideaCtl) ideaCtl.abort(); });
+
+/* ---------- pripomienky ---------- */
+const FBTYP = [["chyba","Niečo nefunguje","🐞"],["napad","Nápad","💡"],["paci","Páči sa mi","❤️"]];
+/* ---------- komentáre k receptom ---------- */
+var KOM = {};
+const FOTO = {};
+let komFoto = null, komBusy = false;
+function komCollect() {
+  KOM = {};
+  for (const d of komDocs) for (const c of (d.items || [])) (KOM[c.recept] = KOM[c.recept] || []).push({...c, autor:d.id});
+  for (const k in KOM) KOM[k].sort((a, b) => (a.kedy || "").localeCompare(b.kedy || ""));
+}
+let komDocs = [];
+async function loadFoto(autor, fid) {
+  const key = autor + "/" + fid;
+  if (key in FOTO) return FOTO[key];
+  FOTO[key] = null;
+  try { const s = await fb.db.doc(`fotky/${autor}/f/${fid}`).get(); FOTO[key] = s.exists ? String(s.data().src || "") : ""; } catch (e) { FOTO[key] = ""; }
+  return FOTO[key];
+}
+async function komRender() {
+  const box = document.getElementById("kom"); if (!box) return;
+  const rid = box.dataset.rid, list = KOM[rid] || [];
+  const ps = list.length && fb.user ? await fb.user.profiles([...new Set(list.map(c => c.autor))]) : {};
+  if (!document.getElementById("kom") || document.getElementById("kom").dataset.rid !== rid) return;
+  const form = fb.ready ? `<form class="kform" id="komForm"><textarea id="komText" maxlength="1000" placeholder="Ako ti to chutilo? Čo by si zmenila?" aria-label="Komentár k receptu"></textarea>
+      <div class="r"><label class="btn ghost">📷 Pridať fotku<input type="file" id="komFile" accept="image/*"></label>${komFoto ? `<img class="prev" src="${komFoto}" alt="Náhľad fotky">` : ""}<button class="btn main" type="submit" ${komBusy ? "disabled" : ""}>${komBusy ? "Ukladám…" : "Pridať komentár"}</button></div></form>`
+    : `<p class="note" style="margin:0">Komentovať sa dá, keď je stránka otvorená v Claude a si prihlásená.</p>`;
+  const typed = document.getElementById("komText") ? document.getElementById("komText").value : "";
+  box.innerHTML = list.map(c => `<div class="kc" data-key="${esc(c.autor + "/" + c.id)}"><img class="av" alt="" src="${esc((ps[c.autor] || {}).avatarUrl || "")}"><div style="display:grid;gap:2px;min-width:0"><div class="meta"><b class="who"></b><span>${new Date(c.kedy).toLocaleString("sk-SK", {day:"numeric", month:"numeric", hour:"2-digit", minute:"2-digit"})}</span></div>${c.text ? `<p class="t"></p>` : ""}</div>
+      ${c.foto ? `<img class="ph" alt="Fotka uvareného jedla" data-foto="${esc(c.foto)}" data-autor="${esc(c.autor)}">` : ""}${c.autor === fb.uid ? `<button class="del" type="button" data-kdel="${esc(c.id)}">Zmazať</button>` : ""}</div>`).join("") + form;
+  const els = box.querySelectorAll(".kc");
+  list.forEach((c, i) => { els[i].querySelector(".who").textContent = (ps[c.autor] || {}).name || (c.autor === fb.uid ? "Ty" : "Kamarátka"); const tt = els[i].querySelector(".t"); if (tt) tt.textContent = c.text; });
+  if (typed && document.getElementById("komText")) document.getElementById("komText").value = typed;
+  box.querySelectorAll("img[data-foto]").forEach(async img => { const src = await loadFoto(img.dataset.autor, img.dataset.foto); if (src && src.startsWith("data:image/")) img.src = src; else img.remove(); });
+}
+async function shrink(file) {
+  const url = URL.createObjectURL(file);
+  try {
+    const img = await new Promise((ok, bad) => { const i = new Image(); i.onload = () => ok(i); i.onerror = bad; i.src = url; });
+    for (const [max, q] of [[1000, .72], [800, .65], [640, .6], [480, .55]]) {
+      const s = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+      const c = document.createElement("canvas"); c.width = Math.round(img.naturalWidth * s); c.height = Math.round(img.naturalHeight * s);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      const d = c.toDataURL("image/jpeg", q); if (d.length < 180000) return d;
+    }
+    return null;
+  } finally { URL.revokeObjectURL(url); }
+}
+dlg_ready_kom();
+function dlg_ready_kom() {
+  const d = document.getElementById("dlg");
+  d.addEventListener("change", async e => {
+    if (e.target.id !== "komFile" || !e.target.files[0]) return;
+    try { komFoto = await shrink(e.target.files[0]); if (!komFoto) toast("Fotka je príliš veľká"); } catch (err) { komFoto = null; toast("Túto fotku neviem načítať"); }
+    komRender();
+  });
+  d.addEventListener("submit", async e => {
+    if (e.target.id !== "komForm") return; e.preventDefault();
+    const text = document.getElementById("komText").value.trim(), rid = document.getElementById("kom").dataset.rid;
+    if (!text && !komFoto) return toast("Napíš komentár alebo pridaj fotku");
+    komBusy = true; komRender();
+    try {
+      const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+      let foto = null;
+      if (komFoto) { await fb.db.doc(`fotky/${fb.uid}/f/${id}`).set({src:komFoto, recept:rid}); foto = id; FOTO[fb.uid + "/" + id] = komFoto; }
+      const mine = komDocs.find(x => x.id === fb.uid);
+      await fb.db.doc("komentare/" + fb.uid).set({items:[...((mine && mine.items) || []), {id, recept:rid, text, foto, kedy:new Date().toISOString()}]});
+      komFoto = null; if (document.getElementById("komText")) document.getElementById("komText").value = "";
+      toast("Komentár je pridaný ✓");
+    } catch (err) { toast("Komentár sa nepodarilo uložiť"); }
+    komBusy = false; komRender();
+  });
+  d.addEventListener("click", async e => {
+    const b = e.target.closest("[data-kdel]"); if (!b || !confirm("Zmazať komentár?")) return;
+    const mine = komDocs.find(x => x.id === fb.uid); if (!mine) return;
+    const c = (mine.items || []).find(x => x.id === b.dataset.kdel);
+    try { await fb.db.doc("komentare/" + fb.uid).set({items:mine.items.filter(x => x.id !== b.dataset.kdel)}); if (c && c.foto) await fb.db.doc(`fotky/${fb.uid}/f/${c.foto}`).delete(); } catch (err) { toast("Nepodarilo sa zmazať"); }
+  });
+}
+
+let fb = {typ:"napad", docs:[], vyriesene:[], ready:false, uid:null, owner:false, mine:null, db:null, user:null};
+function fbChips() {
+  const el = document.getElementById("fbTyp");
+  el.innerHTML = FBTYP.map(([v, l, ic]) => `<button class="chip" type="button" data-v="${v}" aria-pressed="${fb.typ === v}"><span class="ic" aria-hidden="true">${ic}</span>${l}</button>`).join("");
+  el.onclick = e => { const b = e.target.closest("button"); if (b) { fb.typ = b.dataset.v; fbChips(); } };
+}
+async function fbRender() {
+  const list = document.getElementById("fbList");
+  if (!fb.ready) { document.getElementById("fbNote").textContent = "Pripomienky sa dajú posielať, keď je stránka otvorená v Claude a si prihlásená."; document.getElementById("fbSend").disabled = true; list.innerHTML = ""; return; }
+  document.getElementById("fbSend").disabled = false;
+  const all = fb.docs.flatMap(d => (d.notes || []).map(n => ({...n, autor:d.id}))).sort((a, b) => (b.kedy || "").localeCompare(a.kedy || ""));
+  const ps = all.length && fb.user ? await fb.user.profiles([...new Set(all.map(n => n.autor))]) : {};
+  list.innerHTML = all.length ? `<h4 style="margin:6px 0 0">${all.length} ${all.length === 1 ? "pripomienka" : all.length < 5 ? "pripomienky" : "pripomienok"}</h4>` + all.map(n => {
+    const p = ps[n.autor] || {}, res = fb.vyriesene.includes(n.id), ty = FBTYP.find(x => x[0] === n.typ) || FBTYP[1];
+    return `<div class="fb${res ? " res" : ""}"><img alt="" src="${esc(p.avatarUrl || "")}"><div style="display:grid;gap:4px;min-width:0"><div class="meta"><b class="who"></b><span>${ty[2]} ${ty[1]}</span><span>· ${esc(n.kde || "")}</span><span>· ${new Date(n.kedy).toLocaleString("sk-SK", {day:"numeric", month:"numeric", hour:"2-digit", minute:"2-digit"})}</span>${res ? "<span>· ✓ vyriešené</span>" : ""}</div><p class="t"></p></div>
+      ${fb.owner || n.autor === fb.uid ? `<div class="acts">${fb.owner ? `<button type="button" data-res="${esc(n.id)}">${res ? "Znova otvoriť" : "✓ Vyriešené"}</button>` : ""}${n.autor === fb.uid ? `<button type="button" data-del="${esc(n.id)}">Zmazať</button>` : ""}</div>` : ""}</div>`;
+  }).join("") : `<p class="empty" style="padding:20px 0">Zatiaľ žiadne pripomienky.</p>`;
+  const els = list.querySelectorAll(".fb");
+  all.forEach((n, i) => { els[i].querySelector(".who").textContent = (ps[n.autor] || {}).name || (n.autor === fb.uid ? "Ty" : "Testerka"); els[i].querySelector(".t").textContent = n.text; });
+}
+async function fbInit(db, user, uid) {
+  fb.db = db; fb.user = user; fb.uid = uid; fb.ready = true;
+  try { fb.owner = await user.isOwner(); } catch (e) {}
+  try { const p = await user.profiles([uid]); const n = String(((p || {})[uid] || {}).name || "").trim().split(/\s+/)[0]; if (n) document.getElementById("hello").textContent = "Ahoj, " + n; } catch (e) {}
+  if (!fb.owner && plan.domaZFotky) { plan.doma = []; plan.domaZFotky = false; }
+  renderPills(); renderDoma();
+  db.collection("pripomienky").onSnapshot(s => { fb.docs = s.docs.filter(d => d.exists).map(d => ({id:d.id, ...d.data()})); fbRender(); }, () => {});
+  db.doc("stav/pripomienky").onSnapshot(s => { fb.vyriesene = (s.exists && s.data().vyriesene) || []; fbRender(); }, () => {});
+  db.collection("komentare").onSnapshot(s => { komDocs = s.docs.filter(d => d.exists).map(d => ({id:d.id, ...d.data()})); komCollect(); render(); renderIdeas(); komRender(); }, () => {});
+  fbRender();
+}
+document.getElementById("fbForm").addEventListener("submit", async e => {
+  e.preventDefault(); if (!fb.ready) return;
+  const text = document.getElementById("fbText").value.trim(); if (!text) return;
+  const btn = document.getElementById("fbSend"); btn.disabled = true;
+  const mine = fb.docs.find(d => d.id === fb.uid);
+  const notes = [...((mine && mine.notes) || []), {id:Date.now().toString(36) + Math.random().toString(36).slice(2, 6), text, typ:fb.typ, kde:document.getElementById("fbKde").value, kedy:new Date().toISOString()}];
+  try { await fb.db.doc("pripomienky/" + fb.uid).set({notes}); document.getElementById("fbText").value = ""; toast("Ďakujeme, pripomienka je uložená ✓"); document.getElementById("fbNote").textContent = ""; }
+  catch (err) { document.getElementById("fbNote").textContent = "Pripomienku sa nepodarilo uložiť. Skús to znova."; }
+  btn.disabled = false;
+});
+document.getElementById("fbList").addEventListener("click", async e => {
+  const r = e.target.closest("[data-res]"), d = e.target.closest("[data-del]");
+  try {
+    if (r) { const id = r.dataset.res, a = fb.vyriesene.includes(id) ? fb.vyriesene.filter(x => x !== id) : [...fb.vyriesene, id]; await fb.db.doc("stav/pripomienky").set({vyriesene:a}); }
+    if (d) { const mine = fb.docs.find(x => x.id === fb.uid); if (mine) await fb.db.doc("pripomienky/" + fb.uid).set({notes:(mine.notes || []).filter(n => n.id !== d.dataset.del)}); }
+  } catch (err) { toast("Nepodarilo sa uložiť"); }
+});
+fbChips(); fbRender();
+
+function pickMood(k) {
+  st.mood = st.mood === k ? "" : k; renderMoods(); setTab("recepty"); render();
+  if (st.mood) document.getElementById("tab-recepty").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"});
+}
+document.getElementById("moods").addEventListener("click", e => { const b = e.target.closest("[data-mood]"); if (b) pickMood(b.dataset.mood); });
+document.getElementById("count").addEventListener("click", e => { const b = e.target.closest("[data-mood]"); if (b) { st.mood = ""; renderMoods(); render(); } });
+renderMoods();
+renderPills();
+setTab(tab);
+renderDoma();
+renderIdeas();
+renderPlan();
+render();
+</script>

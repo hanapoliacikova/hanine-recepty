@@ -1,0 +1,1763 @@
+{
+ "verzia": 1,
+ "aktualizovane": "2026-10-10",
+ "legenda": {
+  "pre": "rodina = hlavne pre rodinu, oboje = rodina aj Hana, hana = hlavne pre Hanu",
+  "hana": "ok = Hana môže tak, ako je; uprava = Hana môže s úpravou (hana_uprava); nie = nie pre Hanu",
+  "hanina_dieta": "bez lepku, ryže, zemiakov a vyprážaného",
+  "kcal": "odhad kalórií na 1 porciu podľa receptu (bez prílohy, ak nie je v surovinách), zaokrúhlené; odhad Clauda, nie presný výpočet"
+ },
+ "recepty": [
+  {
+   "id": "wifonka-kari",
+   "nazov": "Kari polievka à la wifonka s chrumkavým tofu",
+   "autor": "@kristina.tormova (podľa @fitgreenmind)",
+   "kategoria": "polievka",
+   "cas_min": 30,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Namiesto špaldových rezancov 100 % pohánkové soba alebo konjakové rezance.",
+   "suroviny": [
+    "1 cibuľa",
+    "3 strúčiky cesnaku",
+    "1 chilli",
+    "kúsok zázvoru (ako palec)",
+    "olej",
+    "2–3 PL paradajkového pretlaku",
+    "2 ČL kari",
+    "soľ",
+    "1 plechovka kokosového mlieka",
+    "2 plechovky vody",
+    "1 balenie tofu",
+    "kukuričný škrob",
+    "trochu kokosovej múky",
+    "špaldové rezance"
+   ],
+   "postup": [
+    "Cibuľu, cesnak, chilli a zázvor rozmixuj na pastu a 3–4 min opeč na woku.",
+    "Pridaj pretlak, kari, soľ, kokosové mlieko a vodu, vari 5–10 min pod pokrievkou.",
+    "Tofu osuš, obaľ v škrobe (a kokosovej múke), osoľ a opeč dochrumkava na panvici.",
+    "Rezance vari 5 min v polievke alebo zvlášť."
+   ],
+   "hudba": "asian chill cooking",
+   "kompletny": true,
+   "kcal": 600
+  },
+  {
+   "id": "cherry-omacka",
+   "nazov": "Najlepšia omáčka z čerstvých cherry paradajok",
+   "autor": "@lapetit.sk",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 25,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Bezlepkové cestoviny (kukuričné alebo strukovinové), nie gnocchi.",
+   "suroviny": [
+    "1–2 PL olivového oleja",
+    "250 g cherry paradajok",
+    "1–2 strúčiky cesnaku",
+    "1 PL nadrobno nasekanej slaniny",
+    "1/2 PL trstinového cukru",
+    "čerstvá bazalka",
+    "soľ, čierne korenie",
+    "2 PL strúhaného parmezánu",
+    "cestoviny alebo gnocchi"
+   ],
+   "postup": [
+    "Paradajky prekroj, polož reznou stranou dole do panvice s olejom.",
+    "Pridaj slaninu, cesnak, cukor, bazalku, soľ a korenie a 10 min nechaj karamelizovať bez miešania.",
+    "Zalej 2 dcl vody z cestovín, 2–3 min povar, vmiešaj parmezán.",
+    "Pridaj cestoviny, premiešaj, dochuť."
+   ],
+   "hudba": "italian dinner",
+   "kompletny": true,
+   "kcal": 550
+  },
+  {
+   "id": "jablkove-donuty",
+   "nazov": "Jablkové donuty v lístkovom ceste",
+   "autor": "@mackanskost",
+   "kategoria": "dezert",
+   "cas_min": 40,
+   "porcie": 4,
+   "pre": "rodina",
+   "hana": "nie",
+   "hana_uprava": "",
+   "suroviny": [
+    "1 jablko",
+    "1 rolka lístkového cesta",
+    "kryštálový cukor",
+    "škorica",
+    "1 vajce",
+    "vanilková zmrzlina na podávanie"
+   ],
+   "postup": [
+    "Rúru predhrej na 200 °C, cesto nakrájaj na pásiky.",
+    "Jablko nakrájaj na kolieska a vykroj stred, aby vznikli krúžky.",
+    "Krúžky obaľ v škoricovom cukre a omotaj pásikmi cesta.",
+    "Potri vajcom, posyp škoricovým cukrom, pečie 25–30 min."
+   ],
+   "hudba": "autumn acoustic",
+   "kompletny": true,
+   "kcal": 450
+  },
+  {
+   "id": "sumcek-paprikas",
+   "nazov": "Paprikáš zo sumčeka s bylinkovými haluškami",
+   "autor": "(IG, autor neuvedený na screenshote)",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 45,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Paprikáš bez halušiek, k nemu karfiolové pyré alebo pohánka.",
+   "suroviny": [
+    "700–800 g filetov sumčeka afrického",
+    "1 cibuľa alebo šalotka",
+    "1 červená paprika",
+    "1 PL paradajkového pretlaku",
+    "1 strúčik cesnaku",
+    "1 ČL mletej červenej papriky",
+    "0,5 l vývaru alebo vody s vegetou",
+    "100 ml kyslej smotany",
+    "soľ, korenie",
+    "bravčová masť",
+    "Halušky: 400 g polohrubej alebo špaldovej múky, 1 vajce, hrsť byliniek alebo špenátu, soľ, voda (cca 3 dl), maslo"
+   ],
+   "postup": [
+    "Rybu nakrájaj, osoľ, okoreň.",
+    "Na masti speň cibuľu, papriku, pretlak a cesnak do mäkka.",
+    "Pridaj rybu, mletú papriku, podlej vývarom, krátko poduste, vmiešaj kyslú smotanu.",
+    "Halušky: cesto z múky, vajca, byliniek a vody, vari kým nevyplávajú, ochuť maslom."
+   ],
+   "hudba": "slovak folk modern",
+   "kompletny": true,
+   "kcal": 740
+  },
+  {
+   "id": "naan",
+   "nazov": "Rýchly naan bez kysnutia",
+   "autor": "@lojdovale",
+   "kategoria": "pečivo",
+   "cas_min": 20,
+   "porcie": 4,
+   "pre": "rodina",
+   "hana": "nie",
+   "hana_uprava": "",
+   "suroviny": [
+    "200 g gréckeho jogurtu alebo skyru",
+    "160 g špaldovej múky",
+    "1/2 balenia prášku do pečiva",
+    "1/4 ČL soli"
+   ],
+   "postup": [
+    "Všetko zmiešaj na cesto, rozdeľ na 4 placky.",
+    "Opeč na suchej panvici z oboch strán."
+   ],
+   "hudba": "bollywood chill",
+   "kompletny": true,
+   "kcal": 190
+  },
+  {
+   "id": "tekvicova-polievka",
+   "nazov": "Pečená polievka z tekvice maslovej",
+   "autor": "(IG)",
+   "kategoria": "polievka",
+   "cas_min": 75,
+   "porcie": 3,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "Bez grilovaného toastu.",
+   "suroviny": [
+    "1 tekvica maslová (butternut)",
+    "200 ml kokosového mlieka",
+    "1–2 červené cibule",
+    "1 hlavička cesnaku",
+    "2 paradajky alebo hrnček cherry",
+    "350 ml zeleninového vývaru",
+    "1 ČL čerstvého zázvoru",
+    "olivový olej",
+    "koriander",
+    "po 1 ČL korenia, rasce (kmínu), papriky, tymiánu, rozmarínu, chilli vločiek"
+   ],
+   "postup": [
+    "Zeleninu nakrájaj do pekáča, okoreň, polej olejom, prikry fóliou.",
+    "Peč pri 193 °C asi 1 hodinu.",
+    "Rozmixuj s vývarom a zázvorom, ohrej, vmiešaj kokosové mlieko.",
+    "Ozdob koriandrom a chilli."
+   ],
+   "hudba": "cozy autumn jazz",
+   "kompletny": true,
+   "kcal": 360
+  },
+  {
+   "id": "losos-cestoviny-pecene",
+   "nazov": "Pečený losos so špenátom a cherry k cestovinám",
+   "autor": "@gatim_zi_de_zi",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 25,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Bezlepkové cestoviny alebo len so zeleninou.",
+   "suroviny": [
+    "300 g filetu lososa",
+    "50 g čerstvého špenátu",
+    "3 paradajky alebo 200 g cherry",
+    "60 g krémového syra",
+    "soľ, čierne korenie",
+    "2 PL oleja",
+    "200 g cestovín"
+   ],
+   "postup": [
+    "Lososa na kocky, špenát, paradajky a krémový syr daj do zapekacej misy, okoreň, polej olejom.",
+    "Peč 18 min pri 200 °C.",
+    "Premiešaj s uvarenými cestovinami."
+   ],
+   "hudba": "mediterranean cafe",
+   "kompletny": true,
+   "kcal": 890
+  },
+  {
+   "id": "zimny-salat-cvikla",
+   "nazov": "Zimný šalát z pečenej cvikly, mrkvy a fazule",
+   "autor": "@gayanefood",
+   "kategoria": "šalát",
+   "cas_min": 40,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Zemiaky vynechaj alebo nahraď zelerom.",
+   "suroviny": [
+    "250 g surovej cvikly",
+    "250 g mrkvy",
+    "250 g šalátových zemiakov",
+    "250 g kyslých uhoriek",
+    "1 konzerva červenej fazule (alebo cannellini či cícer)",
+    "1 malá červená cibuľa",
+    "25 g koriandra",
+    "20 g kôpru",
+    "10 g petržlenu",
+    "40 ml olivového oleja",
+    "šťava z 1/2 citróna",
+    "soľ, korenie"
+   ],
+   "postup": [
+    "Cviklu, mrkvu a zemiaky nakrájaj na kocky, polej olejom a peč 20–25 min pri 210 °C.",
+    "Vychladnuté zmiešaj s fazuľou, uhorkami, bylinkami, cibuľou a olejom.",
+    "Nechaj 2–3 h (ideálne cez noc) odležať."
+   ],
+   "hudba": "winter acoustic",
+   "kompletny": true,
+   "kcal": 290
+  },
+  {
+   "id": "vianocny-losos",
+   "nazov": "Pečený losos s glazúrou z granátového jablka",
+   "autor": "@nelkafood",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 30,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "filet lososa",
+    "2 PL olivového oleja",
+    "3 strúčiky cesnaku",
+    "1 a 1/2 ČL melasy z granátového jablka",
+    "1 ČL mletej rasce",
+    "1 ČL soli",
+    "100 ml vriacej vody + 300–400 ml studenej",
+    "Nakladaná cibuľa: 70 ml octu, 30 g práškového cukru, 1 červená cibuľa"
+   ],
+   "postup": [
+    "Postup na screenshote chýba (autorka ho dáva na blog). Odporúčam: lososa natri glazúrou z oleja, cesnaku, melasy, rasce a soli, peč 15–18 min pri 200 °C.",
+    "Cibuľu zalej octom s cukrom a vodou, nechaj postáť."
+   ],
+   "hudba": "christmas jazz",
+   "kompletny": false,
+   "kcal": 520
+  },
+  {
+   "id": "ramen-zvysky",
+   "nazov": "Ramen zo zvyškov morky",
+   "autor": "@feelingtastyy",
+   "kategoria": "polievka",
+   "cas_min": 75,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Tamari namiesto sójovej a teriyaki, jablčný ocot namiesto ryžového, pohánkové rezance.",
+   "suroviny": [
+    "veľký kus zázvoru",
+    "8 jarných cibuliek",
+    "5 strúčikov cesnaku",
+    "1 veľká mrkva",
+    "1 kvalitný kurací bujón",
+    "1 ČL bieleho misa",
+    "1 PL ryžového octu alebo mirinu",
+    "2 PL sójovej omáčky",
+    "1 PL teriyaki",
+    "1 PL sezamového oleja",
+    "1 ČL chilli oleja",
+    "1,5 l morčacieho vývaru alebo vody",
+    "zvyšky morčacieho/kuracieho mäsa",
+    "rezance, vajce na mäkko, zelenina, sezam"
+   ],
+   "postup": [
+    "Všetko na vývar vari aspoň hodinu, preceď.",
+    "Mäso osoľ, okoreň, posyp cesnakom, cibuľou a 5 druhmi korenia a ohrej na masle.",
+    "Podávaj s rezancami, vajcom a zeleninou."
+   ],
+   "hudba": "lofi ramen",
+   "kompletny": true,
+   "kcal": 620
+  },
+  {
+   "id": "salat-batat-cvikla-cicer",
+   "nazov": "Šalát z pečeného batátu, cvikly a cíceru",
+   "autor": "@healthy_floflo",
+   "kategoria": "šalát",
+   "cas_min": 40,
+   "porcie": 1,
+   "pre": "hana",
+   "hana": "ok",
+   "hana_uprava": "Ak ti batáty nevadia (nie sú to zemiaky).",
+   "suroviny": [
+    "1 veľký batát",
+    "1 veľká cvikla",
+    "1 červená cibuľa",
+    "1/2 konzervy cíceru",
+    "po 1/2 ČL oregana, soli, papriky, cesnaku",
+    "olivový olej",
+    "Dressing: 2 PL olivového oleja, 1 ČL medu, 1/2 ČL soli, šťava zo 1/4 citróna",
+    "Navrch: petržlen, 30 g vlašských orechov, 2 PL granátového jablka"
+   ],
+   "postup": [
+    "Zeleninu nakrájaj na kocky, s cícerom okoreň a polej olejom.",
+    "Peč 25 min pri 200 °C, nechaj vychladnúť.",
+    "Pridaj granátové jablko, petržlen, orechy a dressing."
+   ],
+   "hudba": "mediterranean chill",
+   "kompletny": true,
+   "kcal": 1050
+  },
+  {
+   "id": "guacamole-toast",
+   "nazov": "Raňajkový guacamole toast s vajcom",
+   "autor": "@mediterranean.diet.plan",
+   "kategoria": "raňajky",
+   "cas_min": 10,
+   "porcie": 1,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Bezlepkový chlieb.",
+   "suroviny": [
+    "1 vajce natvrdo",
+    "1/2 avokáda",
+    "2 PL červenej cibule",
+    "1 malá paradajka",
+    "1–2 PL petržlenu",
+    "pár kvapiek citróna",
+    "olivový olej",
+    "soľ",
+    "labneh (precedený jogurt)",
+    "kváskový chlieb"
+   ],
+   "postup": [
+    "Avokádo roztlač s cibuľou, paradajkou, petržlenom, citrónom, olejom a soľou.",
+    "Chlieb natri labnehom, navrch guacamole a vajce."
+   ],
+   "hudba": "morning coffee",
+   "kompletny": true,
+   "kcal": 560
+  },
+  {
+   "id": "pecena-zelenina-salat",
+   "nazov": "Šalát z pečenej zeleniny s bylinkami",
+   "autor": "@mediterranean.diet.plan",
+   "kategoria": "šalát",
+   "cas_min": 30,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Bez zemiakov.",
+   "suroviny": [
+    "tekvica maslová",
+    "mrkva",
+    "baby zemiaky",
+    "ružičkový kel",
+    "červená cibuľa",
+    "olivový olej, soľ, korenie",
+    "tymián, šalvia",
+    "pražené vlašské orechy",
+    "granátové jablko",
+    "Vinaigrette: 1/2 hrnčeka olivového oleja, 1/2 hrnčeka jablčného octu, 1 PL dijonskej horčice, soľ, korenie"
+   ],
+   "postup": [
+    "Zeleninu daj na 2 plechy s bylinkami, olejom, soľou, korením, peč 15 min pri 220 °C.",
+    "Posyp orechmi a granátovým jablkom, zmiešaj s vinaigrettou."
+   ],
+   "hudba": "mediterranean chill",
+   "kompletny": true,
+   "kcal": 520
+  },
+  {
+   "id": "avokadove-cestoviny",
+   "nazov": "Avokádovo-bazalkové cestoviny s tofu a hubami",
+   "autor": "@surovadcerka",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 20,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Bezlepkové cestoviny.",
+   "suroviny": [
+    "15 g bazalky",
+    "1 avokádo",
+    "1 PL lahôdkového droždia",
+    "1 ČL soli",
+    "200 ml rastlinnej smotany na varenie",
+    "20 ml citrónovej šťavy",
+    "čierne korenie",
+    "250–300 g cestovín",
+    "olivový olej",
+    "1 marinované tofu",
+    "šampiňóny, cuketa, cherry paradajky"
+   ],
+   "postup": [
+    "Uvar cestoviny, zatiaľ rozmixuj omáčku do hladka.",
+    "Opeč tofu na kocky, potom šampiňóny a nakoniec cuketu.",
+    "Zmiešaj cestoviny s omáčkou a zeleninou, navrch rajčiny a bazalku. Chutí aj studené."
+   ],
+   "hudba": "funk cooking",
+   "kompletny": true,
+   "kcal": 950
+  },
+  {
+   "id": "vajickovy-salat-avokado",
+   "nazov": "Vajíčkový šalát s avokádom a cottage",
+   "autor": "@eatpayylove",
+   "kategoria": "raňajky",
+   "cas_min": 10,
+   "porcie": 1,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "2 vajcia natvrdo",
+    "1/2 avokáda",
+    "1/3 hrnčeka cottage",
+    "1–2 stonky jarnej cibuľky",
+    "citrónová šťava, med, soľ, korenie, chilli vločky"
+   ],
+   "postup": [
+    "Všetko nakrájaj a zmiešaj, dochuť."
+   ],
+   "hudba": "morning coffee",
+   "kompletny": true,
+   "kcal": 400
+  },
+  {
+   "id": "krevety-teriyaki-rezance",
+   "nazov": "Krevety s teriyaki rezancami a zeleninou",
+   "autor": "(IG)",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 20,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Pohánkové rezance, tamari namiesto sójovej, bezlepkové teriyaki a ustricová omáčka, jablčný ocot namiesto ryžového.",
+   "suroviny": [
+    "500 g veľkých očistených kreviet",
+    "1 PL oleja, soľ, korenie",
+    "350–400 g udon alebo vaječných rezancov",
+    "1/4 menšej bielej kapusty",
+    "2 mrkvy",
+    "1 červená paprika",
+    "1/2 menšej brokolice",
+    "100–150 g fazuľových klíčkov",
+    "3–4 jarné cibuľky",
+    "3 strúčiky cesnaku",
+    "3 cm zázvoru",
+    "Omáčka: 5 PL teriyaki, 2 PL sójovej, 1 PL ustricovej, 1 PL medu, 1 PL ryžového octu, 1 ČL sezamového oleja, 1 ČL kukuričného škrobu, 2 PL vody",
+    "Navrch: sezam, jarná cibuľka, limetka, chilli"
+   ],
+   "postup": [
+    "Krevety poriadne osuš, opeč na rozpálenom woku a odlož.",
+    "Na menšie kúsky nakrájanú zeleninu opeč nakrátko, nech ostane chrumkavá.",
+    "Pridaj rezance, omáčku a krevety, premiešaj.",
+    "Posyp sezamom, cibuľkou, pokvapkaj limetkou."
+   ],
+   "hudba": "asian chill cooking",
+   "kompletny": true,
+   "kcal": 640
+  },
+  {
+   "id": "sosovicove-steaky",
+   "nazov": "Šošovicové steaky",
+   "autor": "(IG, #cockovesteaky)",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 40,
+   "porcie": 5,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Bezlepková strúhanka, tamari; namiesto zemiakovej kaše karfiolové pyré.",
+   "suroviny": [
+    "uvarená šošovica (4,5 hrnčeka)",
+    "uvarené biele fazule (6 lyžíc)",
+    "uvarená quinoa (1 hrnček)",
+    "lahôdkové droždie (7 lyžíc)",
+    "cícerová múka (2/3 hrnčeka)",
+    "strúhanka (1/2 hrnčeka)",
+    "kukuričný škrob (4 lyžice)",
+    "sójová omáčka (2 lyžice)",
+    "paradajkový pretlak (3 lyžice)",
+    "olivový olej (2 lyžice)",
+    "citrónová šťava (2 lyžičky)",
+    "údená paprika (2 lyžičky)",
+    "sušený cesnak (2 lyžičky)",
+    "sušená cibuľa (1 lyžička)",
+    "čierne korenie (1 lyžička)",
+    "soľ (2 lyžičky)"
+   ],
+   "postup": [
+    "Šošovicu, quinou, fazuľu, droždie, sójovú, pretlak, olej, citrón a korenie krátko rozmixuj (nech ostane štruktúra).",
+    "Primiešaj cícerovú múku, strúhanku a škrob, nechaj pár minút odležať.",
+    "Vytvaruj 10 steakov, opeč na panvici dozlatista z oboch strán.",
+    "Podávaj s kašou, tatárkou a pažítkou."
+   ],
+   "hudba": "indie folk kitchen",
+   "kompletny": true,
+   "kcal": 460
+  },
+  {
+   "id": "batatova-frittata",
+   "nazov": "Batátová frittata s údeným lososom",
+   "autor": "@patriciaostrihonova",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 45,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "Ak ti batáty nevadia.",
+   "suroviny": [
+    "1 veľký batát",
+    "5 vajec",
+    "200 g cottage",
+    "2–3 PL sójovej smotany",
+    "soľ, korenie, sušený cesnak",
+    "cherry paradajky",
+    "jarná cibuľka",
+    "100–150 g údeného lososa",
+    "feta podľa chuti",
+    "avokádo"
+   ],
+   "postup": [
+    "Batát upeč domäkka a roztlač na dno zapekacej misy.",
+    "Vajcia vyšľahaj s cottage, smotanou a korením, nalej na batát.",
+    "Navrch paradajky, cibuľku, lososa a fetu.",
+    "Peč 25–30 min pri 190 °C, potom pridaj avokádo a nechaj 5–10 min odpočinúť."
+   ],
+   "hudba": "brunch jazz",
+   "kompletny": true,
+   "kcal": 410
+  },
+  {
+   "id": "tuniakovy-wrap",
+   "nazov": "Zapekané tuniakové wrapy",
+   "autor": "@patriciaostrihonova",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 25,
+   "porcie": 3,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Kukuričné bezlepkové tortilly, tamari.",
+   "suroviny": [
+    "3 tortilly",
+    "2 konzervy tuniaka vo vlastnej šťave",
+    "200 g cottage",
+    "1 vajce",
+    "80 g sterilizovanej kukurice",
+    "2 jarné cibuľky",
+    "1–2 ČL sriracha",
+    "1 ČL sójovej omáčky",
+    "100 g strúhaného syra do plnky + 80–100 g navrch",
+    "čierne korenie, 1/2 ČL cesnakového prášku"
+   ],
+   "postup": [
+    "Zmiešaj cottage, vajce, tuniaka, kukuricu, cibuľku, srirachu, sójovú, korenie a syr.",
+    "Tortilly na pár sekúnd namoč do studenej vody, prekroj na polovicu, naplň a prelož na trojuholníky.",
+    "Poukladaj do misy, posyp syrom, peč 15 min pri 200 °C."
+   ],
+   "hudba": "pop hits cooking",
+   "kompletny": true,
+   "kcal": 640
+  },
+  {
+   "id": "bataty-halloumi",
+   "nazov": "Pečené batáty s halloumi a ružovým dressingom",
+   "autor": "@patriciaostrihonova",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 50,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "Ak ti batáty nevadia.",
+   "suroviny": [
+    "batáty",
+    "1 balenie halloumi",
+    "1 zrelé avokádo",
+    "jarná cibuľka",
+    "chilli vločky",
+    "olivový olej, soľ, korenie",
+    "Dressing: 4 PL gréckeho jogurtu, 3 PL nálevu z kyslých uhoriek, 1 ČL kečupu, 1 ČL sriracha, 1/2 ČL údenej papriky, 1/2 ČL sušeného cesnaku, 1/2 ČL sušenej cibule, soľ, korenie"
+   ],
+   "postup": [
+    "Dressing zmiešaj a nechaj 15–20 min odležať v chladničke.",
+    "Batáty prekroj, potri olejom, okoreň, peč reznou stranou nadol 35 min pri 200 °C.",
+    "Otoč, navrch plátky halloumi a ešte 8–10 min zapekaj.",
+    "Pridaj avokádo, dressing, cibuľku a chilli."
+   ],
+   "hudba": "summer chill",
+   "kompletny": true,
+   "kcal": 840
+  },
+  {
+   "id": "batatovy-zapekany-kolac",
+   "nazov": "Batátovo-zeleninový zapekaný koláč s vajíčkom",
+   "autor": "@patriciaostrihonova",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 70,
+   "porcie": 5,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "Ak ti batáty nevadia.",
+   "suroviny": [
+    "2 väčšie batáty (tenké plátky)",
+    "2 väčšie mrkvy (tenké plátky)",
+    "1 stredná cuketa",
+    "kukurica",
+    "150–200 g cherry paradajok",
+    "120–150 g strúhanej mozzarelly",
+    "1–2 PL olivového oleja",
+    "Vaječná zmes: 6 vajec, 200 g cottage, 40–50 g parmezánu, 2 strúčiky cesnaku, 1 ČL údenej papriky, 1 ČL provensálskeho korenia, soľ, korenie"
+   ],
+   "postup": [
+    "Rúru na 190 °C, misu potri olejom.",
+    "Vrstvi batáty, mrkvu, cuketu, kukuricu a mozzarellu, navrch batáty.",
+    "Vaječnú zmes rozmixuj a nalej na zeleninu, navrch cherry a mozzarella.",
+    "Peč 50 min, nechaj 10 min odpočinúť."
+   ],
+   "hudba": "cozy acoustic",
+   "kompletny": true,
+   "kcal": 430
+  },
+  {
+   "id": "pecene-kura",
+   "nazov": "Celé pečené kura so zeleninou",
+   "autor": "@deny.stulikova (tip od @andrej_duban)",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 110,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "celé kura",
+    "zelenina (mrkva, zeler, cibuľa)",
+    "soľ, korenie",
+    "tymián a iné bylinky",
+    "polka hlávky cesnaku",
+    "citrón",
+    "maslo zmiešané s cesnakom a bylinkami",
+    "olej, voda"
+   ],
+   "postup": [
+    "Kura osuš, dovnútra soľ, korenie, bylinky, cesnak a citrón.",
+    "Polož na zeleninu, pod kožu daj bylinkové maslo, potri olejom, osoľ, podlej vodou.",
+    "15 min pri 200 °C, potom 180 °C a každých 15–20 min polievaj, spolu asi 1,5 h."
+   ],
+   "hudba": "sunday soul",
+   "kompletny": true,
+   "kcal": 700
+  },
+  {
+   "id": "zemiakove-gulky-syr",
+   "nazov": "Zemiakové guľky plnené syrom",
+   "autor": "@hescooks",
+   "kategoria": "príloha a snack",
+   "cas_min": 60,
+   "porcie": 4,
+   "pre": "rodina",
+   "hana": "nie",
+   "hana_uprava": "",
+   "suroviny": [
+    "600 g zemiakov",
+    "3 PL kukuričného škrobu",
+    "1 ČL soli",
+    "1 ČL kuracieho alebo hubového bujónu",
+    "1/2 ČL korenia",
+    "1–2 PL petržlenu",
+    "100–120 g mozzarelly",
+    "olej na vyprážanie"
+   ],
+   "postup": [
+    "Zemiaky uvar, scedí a roztlač do hladka.",
+    "Primiešaj soľ, bujón, korenie, petržlen a škrob.",
+    "25 g cesta naplň 5 g syra, uzavri, 30 min chlaď.",
+    "Vypráž v oleji 170–175 °C asi 3–4 min."
+   ],
+   "hudba": "pop hits cooking",
+   "kompletny": true,
+   "kcal": 320
+  },
+  {
+   "id": "zemiakova-omeleta",
+   "nazov": "Turecká zemiaková omeleta so syrom",
+   "autor": "@hediye_tepehan",
+   "kategoria": "raňajky",
+   "cas_min": 20,
+   "porcie": 1,
+   "pre": "rodina",
+   "hana": "nie",
+   "hana_uprava": "",
+   "suroviny": [
+    "1 zemiak",
+    "1 vajce",
+    "olej",
+    "syr kašar (alebo eidam)"
+   ],
+   "postup": [
+    "Zemiak nakrájaj škrabkou na tenko a ulož na panvicu v tenkej vrstve.",
+    "Keď spodok zružovie, rozbi na ne vajce, na polovicu daj syr.",
+    "Prelož ako sendvič, nakrájaj a podávaj."
+   ],
+   "hudba": "turkish lounge",
+   "kompletny": true,
+   "kcal": 430
+  },
+  {
+   "id": "halloumi-mrkva",
+   "nazov": "Halloumi zabalené v mrkve s medom a chilli",
+   "autor": "@fit_sophia_laetitia",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 15,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "1 veľká mrkva",
+    "1 balenie halloumi",
+    "olivový olej",
+    "chilli vločky",
+    "trochu medu"
+   ],
+   "postup": [
+    "Mrkvu ošúp a škrabkou nakrájaj na dlhé tenké pásiky.",
+    "Halloumi nakrájaj na plátky a každý obaľ mrkvou.",
+    "Opeč na oleji dozlatista z oboch strán (začni otvorenou stranou dole).",
+    "Pokvapkaj medom, posyp chilli. Ide k šošovicovému alebo zeleninovému šalátu."
+   ],
+   "hudba": "summer chill",
+   "kompletny": true,
+   "kcal": 470
+  },
+  {
+   "id": "zemiakovy-tart",
+   "nazov": "Zemiakový tart s kuracím mäsom",
+   "autor": "@tastyiri_en",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 60,
+   "porcie": 4,
+   "pre": "rodina",
+   "hana": "nie",
+   "hana_uprava": "",
+   "suroviny": [
+    "chrumkavý zemiakový základ",
+    "kuracie mäso",
+    "šampiňóny",
+    "cherry paradajky",
+    "vajcia a syr navrch"
+   ],
+   "postup": [
+    "Plný recept je len na webe autorky (provecho.co/tastyiri_en)."
+   ],
+   "hudba": "cozy acoustic",
+   "kompletny": false,
+   "kcal": 400
+  },
+  {
+   "id": "vajickovo-tuniakova-natierka",
+   "nazov": "Vajíčkovo-tuniaková nátierka",
+   "autor": "@lapetit.sk",
+   "kategoria": "raňajky",
+   "cas_min": 15,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Bezlepkové pečivo alebo zelenina.",
+   "suroviny": [
+    "125 g krémového syra typu Lučina",
+    "2 vajcia natvrdo",
+    "2 konzervy tuniaka v olivovom oleji",
+    "2 ČL dijonskej horčice",
+    "1/2 menšej červenej cibuľky",
+    "2 PL pažítky",
+    "čierne korenie, soľ",
+    "pár kvapiek citróna"
+   ],
+   "postup": [
+    "Zmiešaj syr, nastrúhané vajcia a tuniaka aj s olejom.",
+    "Dochuť horčicou, korením, cibuľkou a pažítkou.",
+    "Podávaj s čerstvým pečivom."
+   ],
+   "hudba": "morning coffee",
+   "kompletny": true,
+   "kcal": 240
+  },
+  {
+   "id": "fazulova-pesto-miska",
+   "nazov": "Krémová fazuľová pesto miska",
+   "autor": "@patriciaostrihonova",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 15,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Bez orza, prípadne s bezlepkovým chlebom.",
+   "suroviny": [
+    "1 šalotka",
+    "1 cuketa",
+    "konzerva maslovej fazule",
+    "sójová smotana",
+    "3 PL bazalkového pesta",
+    "parmezán",
+    "špenát",
+    "citrón",
+    "chilli, cesnak, soľ, korenie",
+    "orzo alebo iná drobná cestovina"
+   ],
+   "postup": [
+    "Na oleji opraž šalotku a cuketu.",
+    "Pridaj fazuľu aj s nálevom, trochu vody, ochuť.",
+    "Pridaj pesto, krátko povar, stíš oheň a pridaj smotanu, parmezán a špenát.",
+    "Pokvapkaj citrónom, podávaj s chlebom alebo orzom."
+   ],
+   "hudba": "italian dinner",
+   "kompletny": true,
+   "kcal": 610
+  },
+  {
+   "id": "domace-rozky",
+   "nazov": "Domáce rožky",
+   "autor": "@farma_sity",
+   "kategoria": "pečivo",
+   "cas_min": 120,
+   "porcie": 12,
+   "pre": "rodina",
+   "hana": "nie",
+   "hana_uprava": "",
+   "suroviny": [
+    "500 g hladkej múky T650",
+    "300 ml vlažnej vody",
+    "30 g roztopeného masla",
+    "25 g čerstvého droždia",
+    "1 ČL cukru",
+    "1,5 ČL soli"
+   ],
+   "postup": [
+    "Postup je vo videu. Zvyčajne: vymiesiť, nechať vykysnúť, vyvaľkať trojuholníky, stočiť rožky, piecť 15–20 min pri 200 °C."
+   ],
+   "hudba": "country morning",
+   "kompletny": false,
+   "kcal": 170
+  },
+  {
+   "id": "focaccia",
+   "nazov": "Jednoduchá focaccia s cherry",
+   "autor": "@patriciaostrihonova",
+   "kategoria": "pečivo",
+   "cas_min": 40,
+   "porcie": 8,
+   "pre": "rodina",
+   "hana": "nie",
+   "hana_uprava": "",
+   "poznamka": "Cesto kysne cez noc v chladničke (12–24 h).",
+   "suroviny": [
+    "hladká múka (množstvo na screenshote čiastočne zakryté, asi 500 g)",
+    "370 ml vlažnej vody",
+    "5 g sušeného droždia",
+    "10 g soli",
+    "2 PL olivového oleja do cesta + olej na misu a vrch",
+    "čerstvý rozmarín",
+    "hrubá soľ",
+    "cherry paradajky"
+   ],
+   "postup": [
+    "Droždie rozpusti vo vode, zmiešaj s múkou, soľou a olejom na mäkké lepivé cesto.",
+    "Nechaj kysnúť v chladničke 12–24 h.",
+    "Nechaj 2 h kysnúť v teple, prelož na vymastený plech, nechaj ešte 1,5 h.",
+    "Prstami sprav jamky, posyp rozmarínom, soľou, pridaj cherry, peč 22–25 min pri 220 °C."
+   ],
+   "hudba": "italian dinner",
+   "kompletny": true,
+   "kcal": 280
+  },
+  {
+   "id": "toskanska-polievka",
+   "nazov": "Toskánska polievka s fazuľou a čiernym kelom",
+   "autor": "(IG, #toskanskapolievka)",
+   "kategoria": "polievka",
+   "cas_min": 40,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Zemiaky nahraď zelerom alebo pridaj viac fazule.",
+   "suroviny": [
+    "1 cibuľa",
+    "2 mrkvy",
+    "5–6 zemiakov",
+    "2 strúčiky cesnaku",
+    "8–10 sušených paradajok",
+    "1 konzerva cherry paradajok",
+    "1 konzerva maslovej fazule",
+    "1 konzerva cannellini fazule",
+    "čierny kel",
+    "voda a korenie na vývar",
+    "olivový olej, soľ, korenie, provensálske bylinky",
+    "citrón, parmezán (voliteľne)"
+   ],
+   "postup": [
+    "Na oleji orestuj cibuľu, sušené paradajky, mrkvu a zemiaky.",
+    "Zalej vodou, pridaj paradajky, korenie a cesnak, vari 20 min.",
+    "Pridaj fazuľu, 3 naberačky rozmixuj a vráť späť.",
+    "Pridaj kel, krátko povar, dochuť citrónom a parmezánom."
+   ],
+   "hudba": "italian dinner",
+   "kompletny": true,
+   "kcal": 410
+  },
+  {
+   "id": "salat-karicka-nektarinky",
+   "nazov": "Letný šalát s grilovaným syrom Karička a nektárinkami",
+   "autor": "@tamaraheribanova",
+   "kategoria": "šalát",
+   "cas_min": 20,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "2 nektárinky alebo broskyne",
+    "hrsť mandlí alebo vlašských orechov",
+    "lyžička medu",
+    "kúsok masla",
+    "syr Karička na panvicu a gril (Pikant)",
+    "zelený šalát",
+    "1/2 uhorky",
+    "citrónová alebo limetková šťava",
+    "olivový olej, soľ"
+   ],
+   "postup": [
+    "Nektárinky na plátky, posyp orechmi, med, maslo, peč 15 min pri 180 °C.",
+    "Syr nakrájaj a opeč dozlatista.",
+    "Šalát s uhorkou, zálievka, navrch nektárinky a syr."
+   ],
+   "hudba": "summer chill",
+   "kompletny": true,
+   "kcal": 530
+  },
+  {
+   "id": "kaiserky-cottage",
+   "nazov": "Domáce kaiserky s cottage",
+   "autor": "@simi.seligova",
+   "kategoria": "pečivo",
+   "cas_min": 35,
+   "porcie": 4,
+   "pre": "rodina",
+   "hana": "nie",
+   "hana_uprava": "",
+   "suroviny": [
+    "200 g špaldovej hladkej múky",
+    "150 g cottage",
+    "1/2 kypriaceho prášku (6 g)",
+    "1 vajce + 1 na potretie",
+    "1/2 lyžičky soli",
+    "ľanové semienko"
+   ],
+   "postup": [
+    "Rúru na 180 °C. Zmiešaj múku, prášok a soľ, pridaj cottage a vajce, vymiesi.",
+    "Rozdeľ na 4 bochníky, potri vajcom, posyp semienkami.",
+    "Peč 20–25 min."
+   ],
+   "hudba": "morning coffee",
+   "kompletny": true,
+   "kcal": 250
+  },
+  {
+   "id": "zeleny-salat-miso",
+   "nazov": "Super zelený šalát s kuskusom a miso dressingom",
+   "autor": "@patriciaostrihonova",
+   "kategoria": "šalát",
+   "cas_min": 30,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Quinoa alebo pohánka namiesto kuskusu, tamari namiesto sójovej.",
+   "suroviny": [
+    "špargľa",
+    "špenát",
+    "šalát",
+    "avokádo",
+    "brokolica",
+    "edamame",
+    "jarná cibuľka",
+    "uhorka",
+    "kuskus",
+    "sójová a sweet chilli omáčka",
+    "Dressing: grécky jogurt, miso pasta, citrón, agáve, cesnak, sriracha, voda",
+    "konopné a sezamové semienka, feta alebo parmezán"
+   ],
+   "postup": [
+    "Brokolicu var 10 min, špargľu a edamame 5 min, nakrájaj s cibuľkou.",
+    "Kuskus prelej sójovou a sweet chilli a peč 20 min pri 180 °C.",
+    "Zmiešaj dressing, potom všetko spolu, posyp semienkami."
+   ],
+   "hudba": "lofi",
+   "kompletny": true,
+   "kcal": 600
+  },
+  {
+   "id": "avokado-tuniak-natierka",
+   "nazov": "Vajíčkovo-tuniaková nátierka s avokádom",
+   "autor": "@rychla_vareska",
+   "kategoria": "raňajky",
+   "cas_min": 10,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Bezlepkové pečivo.",
+   "suroviny": [
+    "avokádo",
+    "2 vajcia natvrdo",
+    "1/2 veľkej konzervy tuniaka vo vlastnej šťave",
+    "1 PL Lučiny",
+    "1/2 šalotky",
+    "jarná cibuľka alebo pažítka",
+    "citrónová šťava",
+    "soľ, čierne korenie"
+   ],
+   "postup": [
+    "Všetko roztlač a zmiešaj. Ide na chlieb, toast alebo do tortilly."
+   ],
+   "hudba": "morning coffee",
+   "kompletny": true,
+   "kcal": 250
+  },
+  {
+   "id": "spargove-rizoto",
+   "nazov": "Špargľové rizoto",
+   "autor": "@mrpyco",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 35,
+   "porcie": 3,
+   "pre": "rodina",
+   "hana": "nie",
+   "hana_uprava": "",
+   "suroviny": [
+    "460 g špargle",
+    "250 g ryže arborio",
+    "1 citrón",
+    "150 ml bieleho vína",
+    "3 jarné cibuľky",
+    "3 PL olivového oleja",
+    "parmezán",
+    "maslo",
+    "soľ, korenie"
+   ],
+   "postup": [
+    "Postup je vo videu. Klasika: cibuľka na oleji, ryža, víno, postupne vývar, na konci špargľa, maslo, parmezán, citrón."
+   ],
+   "hudba": "italian dinner",
+   "kompletny": false,
+   "kcal": 580
+  },
+  {
+   "id": "curry-fazula",
+   "nazov": "Kari fazuľa za 15 minút",
+   "autor": "@surovadcerka",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 15,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "Bez kuskusu a pečiva.",
+   "suroviny": [
+    "1 PL oleja",
+    "1 menšia cibuľa",
+    "4–5 cm zázvoru",
+    "3 strúčiky cesnaku",
+    "1 PL kari",
+    "štipka čili",
+    "2 PL paradajkového pretlaku",
+    "1 konzerva maslovej fazule",
+    "250 g kokosového mlieka",
+    "štipka soli",
+    "hrsť špenátu",
+    "kvapka citróna"
+   ],
+   "postup": [
+    "Cibuľu opeč dozlatista, pridaj zázvor a cesnak.",
+    "Pridaj kari a čili, potom pretlak, fazuľu, kokosové mlieko a soľ, vari 5 min.",
+    "Vmiešaj špenát, dochuť citrónom."
+   ],
+   "hudba": "funk cooking",
+   "kompletny": true,
+   "kcal": 450
+  },
+  {
+   "id": "kolaciky-feta-olivy",
+   "nazov": "Slané uzlíky s fetou a olivami",
+   "autor": "@vegetariansk",
+   "kategoria": "príloha a snack",
+   "cas_min": 30,
+   "porcie": 12,
+   "pre": "rodina",
+   "hana": "nie",
+   "hana_uprava": "",
+   "suroviny": [
+    "1 balenie rozvaľkaného lístkového cesta",
+    "120 g fety",
+    "100–120 g olív",
+    "1 PL gréckeho jogurtu",
+    "2 ČL oregana",
+    "1 PL olivového oleja",
+    "1 vajce na potretie",
+    "čierny a biely sezam"
+   ],
+   "postup": [
+    "Fetu rozdrob s jogurtom, oreganom, olivami a olejom.",
+    "Natri na polovicu cesta, prikry druhou polovicou.",
+    "Narež pásiky, zatoč do uzlíkov, potri vajcom, posyp sezamom.",
+    "Peč 15 min pri 220 °C."
+   ],
+   "hudba": "greek summer",
+   "kompletny": true,
+   "kcal": 150
+  },
+  {
+   "id": "housky-jogurt",
+   "nazov": "Domáce žemle s jogurtom",
+   "autor": "@simi.seligova",
+   "kategoria": "pečivo",
+   "cas_min": 35,
+   "porcie": 5,
+   "pre": "rodina",
+   "hana": "nie",
+   "hana_uprava": "",
+   "suroviny": [
+    "220 g hladkej špaldovej múky",
+    "1/2 vrecúška kypriaceho prášku",
+    "štipka soli",
+    "180 g bieleho jogurtu",
+    "1 vajce",
+    "Navrch: 1 vajce, ľanové semienko, rasca, soľ"
+   ],
+   "postup": [
+    "Rúru na 160 °C, všetko zmiešaj, vytvaruj 4–5 žemlí.",
+    "Potri vajcom, posyp semienkami, peč 20–25 min."
+   ],
+   "hudba": "morning coffee",
+   "kompletny": true,
+   "kcal": 210
+  },
+  {
+   "id": "spenatove-lievance",
+   "nazov": "Špenátové lievance s rybičkovou penou a kôprom",
+   "autor": "@anettavaculikova",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 35,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Pohánková alebo bezlepková múka namiesto špaldovej.",
+   "suroviny": [
+    "3 hrste špenátu",
+    "1 vajce",
+    "cmar alebo mlieko (cca 500 ml)",
+    "1 lyžica prášku do pečiva",
+    "asi 300 g hladkej špaldovej múky",
+    "štipka soli, 1 lyžica oleja",
+    "ghee alebo masť",
+    "Pena: sardinky s olejom, treščia pečeň, Lučina, trochu kyslej smotany alebo crème fraîche, kôpor, soľ, korenie"
+   ],
+   "postup": [
+    "Špenát rozmixuj s vajcom a 1 dl cmaru, pridaj zvyšok cmaru, prášok, múku, soľ a olej.",
+    "Na ghee peč lievance z oboch strán dozlatista.",
+    "Penu zmiešaj vidličkou a dochuť kôprom."
+   ],
+   "hudba": "brunch jazz",
+   "kompletny": true,
+   "kcal": 600
+  },
+  {
+   "id": "noky-hokkaido",
+   "nazov": "Noky s hokkaido, slaninou a parmezánom",
+   "autor": "@kamala.a.jidlo",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 45,
+   "porcie": 3,
+   "pre": "rodina",
+   "hana": "uprava",
+   "hana_uprava": "Rovnaká omáčka s bezlepkovými cestovinami (noky sú zo zemiakov a múky).",
+   "suroviny": [
+    "1 menšia tekvica hokkaido",
+    "500 g chladených nokov (gnocchi)",
+    "60 g kocky slaniny",
+    "2 strúčiky cesnaku",
+    "200 g pyré z pečenej tekvice",
+    "150 ml 30 % smotany",
+    "30 g parmezánu",
+    "soľ, korenie, muškátový oriešok",
+    "olivový olej alebo ghee",
+    "bazalka"
+   ],
+   "postup": [
+    "Tekvicu peč 30 min pri 180 °C, rozmixuj na pyré.",
+    "Noky uvar a opeč na oleji dozlatista.",
+    "Slaninu opeč, zalej smotanou, ochuť, pridaj pyré a parmezán.",
+    "Zmiešaj s nokmi, ozdob bazalkou."
+   ],
+   "hudba": "cozy autumn jazz",
+   "kompletny": true,
+   "kcal": 670
+  },
+  {
+   "id": "paprikova-batatova-polievka",
+   "nazov": "Paprikovo-batátová krémová polievka",
+   "autor": "@andy.stech",
+   "kategoria": "polievka",
+   "cas_min": 30,
+   "porcie": 3,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "Ak ti batáty nevadia.",
+   "suroviny": [
+    "2 červené papriky",
+    "1 cibuľa",
+    "250 g cherry alebo 2 paradajky",
+    "250 g batátu",
+    "3 PL hustej časti kokosového mlieka",
+    "vývar alebo voda",
+    "olivový olej",
+    "soľ, cesnak, kurkuma"
+   ],
+   "postup": [
+    "Na oleji osmaž cibuľu a papriku do mäkka.",
+    "Pridaj paradajky a batát, zalej vývarom, okoreň a vari 15–20 min.",
+    "Pridaj kokosové mlieko a rozmixuj."
+   ],
+   "hudba": "cozy autumn jazz",
+   "kompletny": true,
+   "kcal": 200
+  },
+  {
+   "id": "lohikeitto",
+   "nazov": "Lohikeitto, fínska lososová polievka",
+   "autor": "@la.cuisine.de.geraldine",
+   "kategoria": "polievka",
+   "cas_min": 40,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Zemiaky nahraď zelerom.",
+   "suroviny": [
+    "350 g lososa bez kože",
+    "30 g masla",
+    "1 PL olivového oleja",
+    "100 g póru",
+    "50 g šalotky",
+    "300 g zemiakov",
+    "2 mrkvy",
+    "70 g smotany",
+    "1,5 l rybieho vývaru",
+    "1 PL rybacej omáčky",
+    "čerstvý kôpor alebo petržlen",
+    "soľ, korenie, citrón"
+   ],
+   "postup": [
+    "Na masle a oleji speň pór a šalotku, pridaj zemiaky a mrkvu, zalej vývarom, vari domäkka.",
+    "10 min pred podávaním pridaj kocky lososa a smotanu, 3–5 min vari (nesmie vrieť).",
+    "Prikry, nechaj postáť, dochuť kôprom a citrónom."
+   ],
+   "hudba": "nordic calm",
+   "kompletny": true,
+   "kcal": 410
+  },
+  {
+   "id": "melonovy-salat",
+   "nazov": "Melónový šalát s fetou, uhorkou a mätou",
+   "autor": "@sebastian_fitarau",
+   "kategoria": "šalát",
+   "cas_min": 10,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "200 g sladkého melónu",
+    "200 g fety",
+    "200 g vodového melónu",
+    "2 uhorky",
+    "1 stredná červená cibuľa",
+    "čerstvá mäta",
+    "extra panenský olivový olej",
+    "soľ, korenie",
+    "mandle"
+   ],
+   "postup": [
+    "Všetko nakrájaj, zmiešaj, polej olejom, posyp mandľami."
+   ],
+   "hudba": "summer chill",
+   "kompletny": true,
+   "kcal": 520
+  },
+  {
+   "id": "orzo-paradajky",
+   "nazov": "Orzo s paradajkami a mozzarellou z jednej panvice",
+   "autor": "@eat_balance_by_lenka",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 20,
+   "porcie": 3,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Malé bezlepkové cestoviny namiesto orza.",
+   "suroviny": [
+    "olivový olej",
+    "300 g cherry paradajok",
+    "4 strúčiky cesnaku",
+    "čerstvé oregano",
+    "2 lyžičky paradajkového pretlaku",
+    "1 bezlaktózová smotana na varenie",
+    "vriaca voda",
+    "soľ, čierne korenie",
+    "300–350 g orza",
+    "1 mozzarella light"
+   ],
+   "postup": [
+    "Opeč cherry, pridaj cesnak a oregano, potom pretlak.",
+    "Pridaj smotanu, orzo, soľ, korenie, zalej vriacou vodou a var, kým orzo nezmäkne.",
+    "Na záver vmiešaj nastrúhanú mozzarellu."
+   ],
+   "hudba": "italian dinner",
+   "kompletny": true,
+   "kcal": 620
+  },
+  {
+   "id": "cuketova-buchta-puding",
+   "nazov": "Cuketová buchta s pudingom a kyslou smotanou",
+   "autor": "(IG)",
+   "kategoria": "dezert",
+   "cas_min": 60,
+   "porcie": 12,
+   "pre": "rodina",
+   "hana": "nie",
+   "hana_uprava": "",
+   "suroviny": [
+    "Cesto (1 hrnček = 300 ml): 2,5 hrnčeka polohrubej múky, 1 hrnček práškového cukru, 1,5 hrnčeka nastrúhanej vyžmýkanej cukety, 1 hrnček mlieka, 1 hrnček oleja, 3 vajcia, 1 prášok do pečiva, 1/4 ČL sódy, 2 PL kakaa",
+    "Puding: 2 vanilkové pudingy, 850 ml mlieka, 6 PL cukru",
+    "Navrch: 2 kelímky kyslej smotany, 2 balíčky škoricového cukru"
+   ],
+   "postup": [
+    "Uvar puding a odlož.",
+    "Cesto vylej na plech, časť zmiešaj s kakaom a navrstvi.",
+    "Navrch teplý puding, peč asi 35 min pri 180 °C.",
+    "Vychladnuté potri smotanou a posyp škoricovým cukrom."
+   ],
+   "hudba": "sunday soul",
+   "kompletny": true,
+   "kcal": 610
+  },
+  {
+   "id": "fazulove-fasirky",
+   "nazov": "Pečené fazuľové fašírky",
+   "autor": "@zuzanavackova",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 35,
+   "porcie": 3,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Bezlepkové ovsené vločky.",
+   "suroviny": [
+    "červená fazuľa",
+    "soľ, čierne korenie, červená paprika",
+    "trochu ovsených vločiek",
+    "červená cibuľa",
+    "petržlenová vňať",
+    "olej",
+    "Príloha: mladá mrkva, brokolica, maslo, šalát"
+   ],
+   "postup": [
+    "Fazuľu roztlač, zmiešaj s korením, vločkami, cibuľou a petržlenom, vytvaruj fašírky.",
+    "Postriekaj olejom, peč asi 25 min pri 180 °C.",
+    "Mrkvu a brokolicu poduste na masle."
+   ],
+   "hudba": "indie folk kitchen",
+   "kompletny": true,
+   "kcal": 400
+  },
+  {
+   "id": "krevety-orzo-citron",
+   "nazov": "Krevety s orzom a citrónom z jednej panvice",
+   "autor": "@dishingouthealth",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 30,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Malé bezlepkové cestoviny namiesto orza.",
+   "suroviny": [
+    "2 PL masla",
+    "2 PL olivového oleja",
+    "450 g surových očistených kreviet",
+    "soľ, čierne korenie",
+    "1/2 hrnčeka nasekanej šalotky",
+    "4 strúčiky cesnaku",
+    "1 a 1/4 hrnčeka orza",
+    "3 hrnčeky vývaru",
+    "3 hrnčeky baby špenátu alebo 225 g špargle",
+    "kôra a šťava z 1 citróna",
+    "2 PL petržlenu"
+   ],
+   "postup": [
+    "Presný postup je na blogu. Zvyčajne: krevety opeč a odlož, na masle speň šalotku a cesnak, pridaj orzo a vývar, vari 10 min, vmiešaj špenát, citrón a krevety."
+   ],
+   "hudba": "mediterranean cafe",
+   "kompletny": false,
+   "kcal": 450
+  },
+  {
+   "id": "proteinovy-salat-karfiol",
+   "nazov": "Proteínový šalát s pečeným karfiolom a cícerom",
+   "autor": "@tagesrezept_",
+   "kategoria": "šalát",
+   "cas_min": 35,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "1 karfiol",
+    "180 g cíceru",
+    "paprika, soľ, korenie, cesnakový prášok",
+    "olivový olej",
+    "šalát, paradajka, uhorka, cibuľa, reďkovky",
+    "Dressing: biely jogurt, čerstvý petržlen, limetková šťava, olivový olej, soľ, korenie, cesnak"
+   ],
+   "postup": [
+    "Karfiol a cícer okoreň, polej olejom a upeč (asi 25 min pri 200 °C).",
+    "Pridaj nakrájanú zeleninu a jogurtový dressing."
+   ],
+   "hudba": "lofi",
+   "kompletny": true,
+   "kcal": 420
+  },
+  {
+   "id": "cicer-kari-kokos",
+   "nazov": "Krémový cícer na kari s kokosovým mliekom",
+   "autor": "@varilamysicka (@kamila.a.jidlo)",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 20,
+   "porcie": 3,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "2 poháre uvareného cíceru",
+    "2 stredné cibule",
+    "2 PL ghí",
+    "2 PL rajčinového pretlaku",
+    "1 plechovka kokosového mlieka",
+    "2 ČL indického kari bez glutamanu",
+    "2 strúčiky cesnaku",
+    "koriander alebo petržlen",
+    "soľ",
+    "citrónová šťava"
+   ],
+   "postup": [
+    "Cibuľu pomaly restuj na ghí dozlatista.",
+    "Pridaj pretlak a cesnak, krátko restuj, osoľ.",
+    "Pridaj cícer a kokosové mlieko, 5 min na miernom ohni, dochuť citrónom."
+   ],
+   "hudba": "bollywood chill",
+   "kompletny": true,
+   "kcal": 550
+  },
+  {
+   "id": "avokado-cicer-salat",
+   "nazov": "Rýchly avokádovo-cícerový šalát",
+   "autor": "@nico.recipes",
+   "kategoria": "šalát",
+   "cas_min": 15,
+   "porcie": 3,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "1 konzerva cíceru",
+    "1,5 hrnčeka cherry",
+    "1,5 hrnčeka uhorky",
+    "1/2 hrnčeka olív",
+    "1/3 hrnčeka červenej cibule",
+    "1/3 hrnčeka petržlenu",
+    "2 zrelé avokáda",
+    "Dressing: 4 PL olivového oleja, 2 PL citrónovej šťavy, 1 PL horčice, 1 PL javorového sirupu, 3/4 ČL soli, 1/4 ČL korenia, 1 ČL rasce (kmínu)"
+   ],
+   "postup": [
+    "Všetko nakrájaj, zmiešaj s dressingom."
+   ],
+   "hudba": "summer chill",
+   "kompletny": true,
+   "kcal": 500
+  },
+  {
+   "id": "zemiakove-wafle-losos",
+   "nazov": "Zemiakové wafle s avokádovo-lososovým krémom",
+   "autor": "(IG)",
+   "kategoria": "raňajky",
+   "cas_min": 40,
+   "porcie": 2,
+   "pre": "rodina",
+   "hana": "uprava",
+   "hana_uprava": "Krém s lososom si daj na bezlepkový chlieb alebo k zelenine.",
+   "suroviny": [
+    "2 veľké múčnaté zemiaky",
+    "1 avokádo",
+    "1 malá uhorka",
+    "1/2 červenej cibule",
+    "5 plátkov údeného lososa",
+    "1/2 citróna",
+    "2 vrchovaté PL jogurtu",
+    "2 PL majonézy",
+    "kôpor",
+    "soľ, korenie",
+    "olivový olej"
+   ],
+   "postup": [
+    "Zemiaky uvar v šupke.",
+    "Ostatné nasekaj a zmiešaj s jogurtom, majonézou, citrónom a korením.",
+    "Zemiaky stlač vo vaflovači potretom olejom a upeč dochrumkava, podávaj s krémom."
+   ],
+   "hudba": "brunch jazz",
+   "kompletny": true,
+   "kcal": 590
+  },
+  {
+   "id": "one-pot-losos-spenat",
+   "nazov": "Zapekaný losos so špenátom a bylinkovým syrom k cestovinám",
+   "autor": "@stefanozarrella",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 25,
+   "porcie": 2,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Bezlepkové cestoviny.",
+   "suroviny": [
+    "filety lososa",
+    "2 hrste listového špenátu",
+    "1 červená cibuľa",
+    "150 g cherry paradajok",
+    "150 g bylinkového čerstvého syra",
+    "2 PL olivového oleja",
+    "korenie podľa chuti",
+    "citrón",
+    "150 ml smotany",
+    "150 g cestovín",
+    "20 g parmezánu"
+   ],
+   "postup": [
+    "Do zapekacej misy daj lososa, špenát, cibuľu a syr, okoreň, navrch plátky citróna, nakoniec smotanu.",
+    "Peč 12–15 min pri 180 °C, medzitým uvar cestoviny.",
+    "Zmiešaj omáčku s cestovinami a trochou vody z nich, posyp parmezánom."
+   ],
+   "hudba": "mediterranean cafe",
+   "kompletny": true,
+   "kcal": 1050
+  },
+  {
+   "id": "baskicky-cheesecake",
+   "nazov": "Baskický cheesecake",
+   "autor": "@marekpavala",
+   "kategoria": "dezert",
+   "cas_min": 90,
+   "porcie": 8,
+   "pre": "oboje",
+   "hana": "uprava",
+   "hana_uprava": "Namiesto múky kukuričný škrob, je potom bez lepku.",
+   "suroviny": [
+    "1600 g syra Philadelphia",
+    "3 lyžice hladkej múky",
+    "300 g smotany na šľahanie",
+    "450 g cukru",
+    "8 vajec",
+    "1 celá vanilka (alebo 4 ČL extraktu)"
+   ],
+   "postup": [
+    "Syr povoľ metlou, pridaj cukor, potom múku, vanilku, smotanu a vajcia, vymiešaj do hladka.",
+    "Formu 26 cm vylož zmačkaným papierom na pečenie, nalej cesto.",
+    "Peč pri 220 °C do tmavohnedého vrchu.",
+    "Nechaj vychladnúť (aj cez noc v chladničke)."
+   ],
+   "hudba": "sunday soul",
+   "kompletny": true,
+   "kcal": 910
+  },
+  {
+   "id": "karfiol-parmezan",
+   "nazov": "Pečený karfiol v parmezáne",
+   "autor": "@andy.stech",
+   "kategoria": "príloha a snack",
+   "cas_min": 30,
+   "porcie": 3,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "karfiol",
+    "olivový olej",
+    "parmezán (alebo iný syr)",
+    "korenie: červená paprika, cesnak, pizza korenie"
+   ],
+   "postup": [
+    "Karfiol nakrájaj, potri olejom s korením.",
+    "Namoč do parmezánu a peč 20–25 min pri 200 °C."
+   ],
+   "hudba": "lofi",
+   "kompletny": true,
+   "kcal": 240
+  },
+  {
+   "id": "konfitovany-cesnak",
+   "nazov": "Konfitovaný cesnak do zásoby",
+   "autor": "@marekpavala",
+   "kategoria": "zásoba",
+   "cas_min": 60,
+   "porcie": 10,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "niekoľko hláv cesnaku",
+    "olivový olej",
+    "rozmarín",
+    "šalvia"
+   ],
+   "postup": [
+    "Ošúpané strúčiky pomaly var v oleji s bylinkami do mäkka.",
+    "Skladuj v chladničke, olej použi na varenie."
+   ],
+   "hudba": "lofi",
+   "kompletny": true,
+   "kcal": 80
+  },
+  {
+   "id": "omeleta-spenat-huby",
+   "nazov": "Omeleta so špenátom, hubami a pórom",
+   "autor": "@miriam.kalisova",
+   "kategoria": "raňajky",
+   "cas_min": 15,
+   "porcie": 1,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "vajcia",
+    "špenát",
+    "huby",
+    "pór",
+    "mozzarella alebo slanina (voliteľne)"
+   ],
+   "postup": [
+    "Zeleninu opeč, zalej rozšľahanými vajcami, nechaj stuhnúť. Daj tam, čo máš v chladničke."
+   ],
+   "hudba": "morning coffee",
+   "kompletny": true,
+   "kcal": 400
+  },
+  {
+   "id": "polievka-biela-fazula",
+   "nazov": "Krémová polievka z bielej fazule s parmezánom",
+   "autor": "@la.cuisine.de.geraldine",
+   "kategoria": "polievka",
+   "cas_min": 40,
+   "porcie": 4,
+   "pre": "oboje",
+   "hana": "ok",
+   "hana_uprava": "",
+   "suroviny": [
+    "3 konzervy bielej fazule",
+    "4 hrnčeky zeleninového vývaru",
+    "1 cibuľa",
+    "3 mrkvy",
+    "2 stonky zeleru",
+    "3 strúčiky cesnaku",
+    "1 ČL chilli vločiek",
+    "1/2 hrnčeka suchého bieleho vína alebo vývaru",
+    "6 vetvičiek tymiánu",
+    "2 bobkové listy",
+    "1/2 hrnčeka strúhaného parmezánu",
+    "3 hrnčeky špenátu",
+    "1 citrón",
+    "soľ, korenie, olivový olej"
+   ],
+   "postup": [
+    "Plný postup je na blogu. Zvyčajne: speň cibuľu, mrkvu, zeler a cesnak, podlej vínom, pridaj fazuľu, vývar a bylinky, vari 20 min.",
+    "Časť rozmixuj, vmiešaj špenát, parmezán a citrón."
+   ],
+   "hudba": "cozy autumn jazz",
+   "kompletny": false,
+   "kcal": 360
+  },
+  {
+   "id": "rizoto-sosovica-tofu",
+   "nazov": "Rizoto zo šošovice a basmati s tofu",
+   "autor": "(IG)",
+   "kategoria": "hlavné jedlo",
+   "cas_min": 30,
+   "porcie": 3,
+   "pre": "rodina",
+   "hana": "uprava",
+   "hana_uprava": "Quinoa namiesto ryže.",
+   "poznamka": "Hnedú šošovicu treba namočiť na 8 h.",
+   "suroviny": [
+    "70 g hnedej šošovice",
+    "100 g ryže basmati",
+    "2 ČL soli",
+    "4 červené cibule",
+    "2 ČL trstinového cukru",
+    "5 PL olivového oleja",
+    "1 biele tofu natural (200 g)",
+    "2 zväzky jarnej cibuľky",
+    "1 červená paprika",
+    "10 sušených paradajok",
+    "1 ČL kari",
+    "štipka cukru",
+    "limetka a koriander"
+   ],
+   "postup": [
+    "Šošovicu namoč cez noc, s ryžou uvar v osolenej vode.",
+    "Cibuľu na plátky orestuj, pridaj soľ a cukor.",
+    "Tofu nadrob a opeč dozlatista, orestuj jarnú cibuľku, papriku a sušené paradajky.",
+    "Pridaj kari, soľ a cukor, všetko zmiešaj, ozdob limetkou a koriandrom."
+   ],
+   "hudba": "lofi",
+   "kompletny": true,
+   "kcal": 570
+  }
+ ]
+}

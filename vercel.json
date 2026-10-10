@@ -1,0 +1,4 @@
+{
+  "outputDirectory": "public",
+  "functions": { "api/napady.js": { "maxDuration": 60 } }
+}
