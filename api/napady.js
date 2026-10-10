@@ -11,7 +11,7 @@ function parseJSON(text) {
 
 module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).json({code: "error"});
-  const SU = process.env.SUPABASE_URL, AK = process.env.SUPABASE_ANON_KEY, KEY = process.env.ANTHROPIC_API_KEY;
+  const SU = String(process.env.SUPABASE_URL || "").trim().replace(/\/(rest|auth)\/v1.*$/, "").replace(/\/+$/, ""), AK = String(process.env.SUPABASE_ANON_KEY || "").trim(), KEY = String(process.env.ANTHROPIC_API_KEY || "").trim();
   const LIMIT = Number(process.env.DENNY_LIMIT || 10);
   if (!SU || !AK || !KEY) return res.status(500).json({code: "error", error: "Chýba nastavenie na serveri."});
 

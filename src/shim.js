@@ -85,7 +85,9 @@
   const ready = (async () => {
     if (document.readyState === "loading") await new Promise(r => document.addEventListener("DOMContentLoaded", r, {once:true}));
     loginUI();
-    const cfg = await fetch("/api/config").then(r => r.json());
+    const cfg = await fetch("/api/config").then(r => r.json()).catch(() => ({}));
+    if (!cfg.url || !cfg.anonKey) throw Object.assign(new Error("config"), {hr:"Chýba nastavenie Supabase. Vo Verceli skontroluj Environment Variables SUPABASE_URL a SUPABASE_ANON_KEY a daj Redeploy."});
+    if (!window.supabase) throw Object.assign(new Error("lib"), {hr:"Nenačítala sa knižnica Supabase. Skús obnoviť stránku."});
     sb = window.supabase.createClient(cfg.url, cfg.anonKey, {auth:{persistSession:true, autoRefreshToken:true}});
     session = (await sb.auth.getSession()).data.session;
     if (!session) session = await askLogin();
@@ -94,7 +96,7 @@
     me = data || {id:session.user.id, name:"", is_admin:false};
     accountButton();
   })();
-  ready.catch(e => { console.error(e); document.body.insertAdjacentHTML("afterbegin", `<p style="padding:16px;font-weight:700">Appku sa nepodarilo spustiť. Skús obnoviť stránku.</p>`); });
+  ready.catch(e => { console.error(e); const m = (e && e.hr) || "Appku sa nepodarilo spustiť (" + esc(String(e && e.message || e).slice(0, 160)) + "). Skús obnoviť stránku."; document.body.insertAdjacentHTML("afterbegin", `<p style="padding:16px;font-weight:700">${m}</p>`); });
 
   /* ---------- dáta ---------- */
   const watchers = new Map(), channels = new Set();
